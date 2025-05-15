@@ -23,7 +23,7 @@ namespace StreamingAPI
                 _mapper = mapper;
                 _repository = repository;
             }
-
+        
 
         public async Task<UsuarioDTO> Alterar(UsuarioDTO dto)
         {

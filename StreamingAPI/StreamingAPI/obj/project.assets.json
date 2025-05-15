@@ -4938,11 +4938,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PIM FINAL 2025\\StreamingAPI\\StreamingAPI\\StreamingAPI.csproj",
+      "projectUniqueName": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\StreamingAPI.csproj",
       "projectName": "StreamingAPI",
-      "projectPath": "D:\\PIM FINAL 2025\\StreamingAPI\\StreamingAPI\\StreamingAPI.csproj",
+      "projectPath": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\StreamingAPI.csproj",
       "packagesPath": "C:\\Users\\vinic\\.nuget\\packages\\",
-      "outputPath": "D:\\PIM FINAL 2025\\StreamingAPI\\StreamingAPI\\obj\\",
+      "outputPath": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
