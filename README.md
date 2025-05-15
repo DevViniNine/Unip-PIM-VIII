@@ -6,4 +6,4 @@ Sistema de streaming de conteúdo multimídia
 
 Este projeto é licenciado sob os termos da [MIT License](LICENSE).
 
-**Atenção:** Os arquivos dentro da pasta `Conteudos/` (vídeos, músicas e imagens) são utilizados exclusivamente para fins acadêmicos.
+**Atenção:** Os arquivos dentro da pasta `Conteudos/` (vídeos, audios e imagens) são utilizados exclusivamente para fins acadêmicos.
