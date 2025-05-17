@@ -23,6 +23,7 @@ namespace StreamingAPI
             Task<Usuario> Alterar(Usuario usuario);
             Task<Usuario> Excluir(int id);
             Task<Usuario> SelecionarAsync(int id);
+            Task<Usuario> SelecionarPorEmailAsync(string email);
             Task<IEnumerable<Usuario>> SelecionarTodosAsync();
         }
 
@@ -34,6 +35,8 @@ namespace StreamingAPI
             Task<UsuarioDTO> Alterar(UsuarioDTO usuarioDTO);
             Task<UsuarioDTO> Excluir(int id);
             Task<UsuarioDTO> SelecionarAsync(int id);
+
+            Task<UsuarioDTO> SelecionarPorEmailAsync(string email);
             Task<IEnumerable<UsuarioDTO>> SelecionarTodosAsync();
         }
 

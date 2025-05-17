@@ -384,6 +384,32 @@
   },
   {
     "ContainingType": "StreamingAPI.UsuarioController",
+    "Method": "GetUsuarioPorEmail",
+    "RelativePath": "api/Usuario/email/{email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StreamingAPI.DTOs\u002BUsuarioDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "StreamingAPI.UsuarioController",
     "Method": "GetUsuarios",
     "RelativePath": "api/Usuario/listar",
     "HttpMethod": "GET",

@@ -36,7 +36,7 @@ namespace StreamingAPI
          */
 
         [HttpPost("cadastrar")]
-        [Authorize]
+      //  [Authorize]
         public async Task<ActionResult<UserToken>> Incluir(UsuarioDTO usuarioDTO)
         {
             if (usuarioDTO == null)
@@ -113,6 +113,17 @@ namespace StreamingAPI
             {
                 Token = token
             };
+        }
+
+        [HttpGet("email/{email}")]
+        // [Authorize] // opcional, se quiser proteger
+        public async Task<ActionResult<UsuarioDTO>> GetUsuarioPorEmail(string email)
+        {
+            var usuario = await _usuarioService.SelecionarPorEmailAsync(email);
+            if (usuario == null)
+                return NotFound("Usuário não encontrado.");
+
+            return Ok(usuario);
         }
 
         [HttpDelete("deletar/{id}")]

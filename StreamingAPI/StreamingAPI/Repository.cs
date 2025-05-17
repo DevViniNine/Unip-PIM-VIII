@@ -51,12 +51,17 @@ namespace StreamingAPI
                 return await _context.Usuario.FindAsync(id);
             }
 
+
             public async Task<IEnumerable<Usuario>> SelecionarTodosAsync()
             {
                 return await _context.Usuario.ToListAsync();
             }
+            public async Task<Usuario> SelecionarPorEmailAsync(string email)
 
-         
+            {
+                return await _context.Usuario.FirstOrDefaultAsync(u => u.Email == email);
+            }
+
         }
 
         public class PlaylistRepository : IPlaylistRepository

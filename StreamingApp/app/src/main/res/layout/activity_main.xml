@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <TextView
+        android:id="@+id/txtAppName"
+        android:text="StreamingApp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+    <ScrollView
+        android:id="@+id/scrollFeed"
+        android:layout_below="@id/txtAppName"
+        android:layout_above="@id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:importantForAccessibility="no">
+
+        <LinearLayout
+            android:id="@+id/feedContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:padding="8dp"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/btnVoce"
+            android:src="@android:drawable/ic_menu_myplaces"
+            android:contentDescription="Você"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:src="@android:drawable/ic_menu_view"
+            android:contentDescription="Início"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <ImageButton
+            android:id="@+id/btnBiblioteca"
+            android:src="@android:drawable/ic_menu_agenda"
+            android:contentDescription="Biblioteca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <ImageButton
+            android:id="@+id/btnConfig"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:contentDescription="Configurações"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+
+</RelativeLayout>

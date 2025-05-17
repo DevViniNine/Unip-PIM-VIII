@@ -31,11 +31,11 @@ namespace StreamingAPI
             if (usuarioExistente == null)
                 throw new Exception("Usuário não encontrado");
 
-            // Atualiza apenas os campos que foram enviados
+            
            usuarioExistente.AlterarNome(dto.Nome);
            usuarioExistente.AlterarEmail(dto.Email);
 
-            // Só altera a senha se ela foi enviada
+            
             if (!string.IsNullOrEmpty(dto.Password))
             {
                 using var hmac = new HMACSHA512();
@@ -55,6 +55,11 @@ namespace StreamingAPI
                 return _mapper.Map<UsuarioDTO>(usuario);
             }
 
+        public async Task<UsuarioDTO> SelecionarPorEmailAsync(string email)
+        {
+            var usuario = await _repository.SelecionarPorEmailAsync(email);
+            return _mapper.Map<UsuarioDTO>(usuario);
+        }
 
         public async Task<UsuarioDTO> Incluir(UsuarioDTO usuarioDTO)
         {
