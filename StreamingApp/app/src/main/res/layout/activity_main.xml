@@ -8,12 +8,13 @@
 
     <TextView
         android:id="@+id/txtAppName"
-        android:text="StreamingApp"
+        android:text="Inicio"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:padding="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true" />
 
 

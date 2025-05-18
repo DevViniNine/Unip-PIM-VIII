@@ -1,7 +1,9 @@
 package com.pim.streamingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,8 +23,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         feedContainer = findViewById(R.id.feedContainer);
 
+        ImageButton btnInicio = findViewById(R.id.btnInicio);
+        btnInicio.setOnClickListener(v -> {
+            Toast.makeText(this, "Você já está na tela inicial.", Toast.LENGTH_SHORT).show();
+        });
+
+        ImageButton btnBiblioteca = findViewById(R.id.btnBiblioteca);
+        btnBiblioteca.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, BibliotecaActivity.class);
+            startActivity(intent);
+        });
         carregarConteudos();
     }
+
 
     private void carregarConteudos() {
         ApiService api = RetrofitClient.getApiService(MainActivity.this);
@@ -67,4 +80,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 }

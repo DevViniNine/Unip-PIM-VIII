@@ -30,18 +30,19 @@ public class ConteudoAdapter {
         // Ícone por tipo
         switch (conteudo.tipo.toLowerCase()) {
             case "video":
-                imgPreview.setImageResource(android.R.drawable.ic_media_play);
+                imgPreview.setImageResource(R.drawable.video_player);
                 break;
             case "musica":
             case "podcast":
-                imgPreview.setImageResource(android.R.drawable.ic_media_ff);
+                imgPreview.setImageResource(R.drawable.audio_player);
                 break;
             case "imagem":
-                imgPreview.setImageResource(android.R.drawable.ic_menu_gallery);
+                imgPreview.setImageResource(R.drawable.image_view);
                 break;
             default:
                 imgPreview.setImageResource(android.R.drawable.ic_menu_help);
                 break;
+
         }
 
         // Ao clicar → abrir com intent padrão

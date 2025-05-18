@@ -10,6 +10,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -62,5 +63,23 @@ public interface ApiService {
     Call<ResumoVisualizacaoResponse> getTotalVisualizacoes(@Path("conteudoId") int conteudoId);
 
 
+    // Criar playlist
+    @POST("api/Playlist/criar")
+    Call<Void> criarPlaylist(@Body Playlist playlist, @Header("Authorization") String token);
+
+    // Alterar playlist
+    @PUT("api/Playlist/alterar/{id}")
+    Call<Void> alterarPlaylist(@Path("id") int id, @Body Playlist playlist, @Header("Authorization") String token);
+
+    // Deletar playlist
+    @DELETE("api/Playlist/deletar/{id}")
+    Call<Void> deletarPlaylist(@Path("id") int id, @Header("Authorization") String token);
+
+    // Listar playlists (supondo que você tenha esse endpoint futuramente)
+    @GET("api/Playlist/listar")
+    Call<List<Playlist>> listarPlaylists(@Header("Authorization") String token);
+
+
+    Call<List<Playlist>> listarPlaylistsDoUsuario(String s);
 }
 

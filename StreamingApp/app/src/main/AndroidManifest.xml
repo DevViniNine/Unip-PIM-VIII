@@ -16,6 +16,12 @@
         android:theme="@style/Theme.StreamingApp"
         tools:targetApi="31">
         <activity
+            android:name=".MinhasPlaylistsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BibliotecaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExibirConteudoActivity"
             android:exported="false" />
         <activity

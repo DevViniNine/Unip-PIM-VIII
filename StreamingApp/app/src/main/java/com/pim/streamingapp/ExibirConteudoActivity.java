@@ -60,6 +60,19 @@ public class ExibirConteudoActivity extends AppCompatActivity {
         tipo = intent.getStringExtra("tipo");
         url = intent.getStringExtra("url");
 
+
+        ImageButton btnInicio = findViewById(R.id.btnInicio);
+        btnInicio.setOnClickListener(v -> {
+
+            // Evita criar várias instâncias
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish(); // opcional: fecha a tela atual
+        });
+
+
+
+
         // Bind de componentes
         playerView = findViewById(R.id.playerView);
         conteudoContainer = findViewById(R.id.conteudoContainer);
