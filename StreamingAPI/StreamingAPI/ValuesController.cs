@@ -448,6 +448,7 @@ namespace StreamingAPI
     {
         private readonly ICurtidaService _service;
 
+
         public CurtidaController(ICurtidaService service)
         {
             _service = service;
@@ -486,6 +487,21 @@ namespace StreamingAPI
                 });
             }
         }
+        [HttpGet("existe")]
+        public async Task<ActionResult<bool>> ExisteCurtida([FromQuery] int usuarioId, [FromQuery] int conteudoId)
+        {
+            try
+            {
+                var existe = await _service.UsuarioCurtiuConteudoAsync(usuarioId, conteudoId);
+                return Ok(existe);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro interno: {ex.Message}");
+            }
+        }
+
+
 
         [HttpDelete("descurtir/{conteudoId}")]
         [Authorize]
@@ -632,6 +648,13 @@ namespace StreamingAPI
                 total = lista.Count(),
                 visualizacoes = lista
             });
+        }
+
+        [HttpGet("total/{conteudoId}")]
+        public async Task<IActionResult> GetTotal(int conteudoId)
+        {
+            var total = await _service.TotalPorConteudoAsync(conteudoId);
+            return Ok(new { totalVisualizacoes = total });
         }
 
         [HttpGet("populares")]

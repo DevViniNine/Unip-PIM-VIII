@@ -112,6 +112,7 @@ namespace StreamingAPI
         Task RemoverAsync(int usuarioId, int conteudoId);
         Task<bool> ExisteAsync(int usuarioId, int conteudoId);
         Task<IEnumerable<Curtida>> ListarPorConteudoAsync(int conteudoId);
+        Task<bool> UsuarioCurtiuConteudoAsync(int usuarioId, int conteudoId);
     }
 
     public interface IComentarioRepository
@@ -125,6 +126,8 @@ namespace StreamingAPI
     {
         Task AdicionarAsync(Visualizacao visualizacao);
         Task<IEnumerable<Visualizacao>> ListarPorUsuarioAsync(int usuarioId);
+
+        Task<int> ContarPorConteudoAsync(int conteudoId);
         Task<IEnumerable<Visualizacao>> ListarPorConteudoAsync(int conteudoId);
     }
 

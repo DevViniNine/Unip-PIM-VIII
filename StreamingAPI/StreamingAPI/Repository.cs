@@ -129,7 +129,11 @@ namespace StreamingAPI
                 _context.Curtidas.Add(curtida);
                 await _context.SaveChangesAsync();
             }
-
+            public async Task<bool> UsuarioCurtiuConteudoAsync(int usuarioId, int conteudoId)
+            {
+                return await _context.Curtidas
+                    .AnyAsync(c => c.UsuarioId == usuarioId && c.ConteudoId == conteudoId);
+            }
             public async Task RemoverAsync(int usuarioId, int conteudoId)
             {
                 var curtida = await _context.Curtidas
@@ -189,6 +193,11 @@ namespace StreamingAPI
             public VisualizacaoRepository(StreamingAPIContext context)
             {
                 _context = context;
+            }
+            public async Task<int> ContarPorConteudoAsync(int conteudoId)
+            {
+                return await _context.Visualizacoes
+                    .CountAsync(v => v.ConteudoId == conteudoId);
             }
 
             public async Task AdicionarAsync(Visualizacao visualizacao)

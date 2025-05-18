@@ -49,49 +49,42 @@
 
         <ImageButton
             android:id="@+id/btnVoce"
-            android:src="@android:drawable/ic_menu_myplaces"
-            android:contentDescription="Você"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:padding="8dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Você"
+            android:importantForAccessibility="yes"
+            android:scaleType="fitCenter"
+            android:src="@drawable/perfil" />
 
         <ImageButton
             android:id="@+id/btnInicio"
-            android:src="@android:drawable/ic_menu_view"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home_page"
             android:contentDescription="Início"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:padding="8dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless" />
 
         <ImageButton
             android:id="@+id/btnBiblioteca"
-            android:src="@android:drawable/ic_menu_agenda"
+            android:src="@drawable/library"
+            android:scaleType="fitCenter"
             android:contentDescription="Biblioteca"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:padding="8dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless" />
 
         <ImageButton
             android:id="@+id/btnConfig"
-            android:src="@android:drawable/ic_menu_preferences"
+            android:scaleType="fitCenter"
+            android:src="@drawable/config"
             android:contentDescription="Configurações"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:padding="8dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless" />
     </LinearLayout>

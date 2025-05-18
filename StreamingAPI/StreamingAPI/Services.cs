@@ -277,14 +277,21 @@ namespace StreamingAPI
         public interface ICurtidaService
         {
             Task CurtirAsync(int usuarioId, int conteudoId);
+            Task<bool> UsuarioCurtiuConteudoAsync(int usuarioId, int conteudoId);
+
             Task DescurtirAsync(int usuarioId, int conteudoId);
             Task<IEnumerable<CurtidaDTO>> ListarCurtidasDoConteudoAsync(int conteudoId);
+
+
+
         }
 
         public class CurtidaService : ICurtidaService
         {
+            //private readonly StreamingAPIContext _context;
             private readonly ICurtidaRepository _repository;
             private readonly IMapper _mapper;
+            
 
             public CurtidaService(ICurtidaRepository repository, IMapper mapper)
             {
@@ -306,9 +313,17 @@ namespace StreamingAPI
                 await _repository.AdicionarAsync(curtida);
             }
 
+
             public async Task DescurtirAsync(int usuarioId, int conteudoId)
             {
                 await _repository.RemoverAsync(usuarioId, conteudoId);
+            }
+
+
+
+            public async Task<bool> UsuarioCurtiuConteudoAsync(int usuarioId, int conteudoId)
+            {
+                return await _repository.UsuarioCurtiuConteudoAsync(usuarioId, conteudoId);
             }
 
             public async Task<IEnumerable<CurtidaDTO>> ListarCurtidasDoConteudoAsync(int conteudoId)
@@ -350,7 +365,6 @@ namespace StreamingAPI
 
                 await _repo.AdicionarAsync(comentario);
             }
-
             public async Task<IEnumerable<ComentarioDTO>> ListarAsync(int conteudoId)
             {
                 var comentarios = await _repo.ListarPorConteudoAsync(conteudoId);
@@ -359,9 +373,11 @@ namespace StreamingAPI
                 {
                     UsuarioId = c.UsuarioId,
                     ConteudoId = c.ConteudoId,
-                    Texto = c.Texto
+                    Texto = c.Texto,
+                    UsuarioNome = c.Usuario?.Nome // <- pegar o nome se tiver include
                 });
             }
+
         }
 
 
@@ -369,11 +385,14 @@ namespace StreamingAPI
         {
             Task RegistrarAsync(int usuarioId, int conteudoId);
             Task<IEnumerable<VisualizacaoDTO>> ListarPorUsuarioAsync(int usuarioId);
+            Task<int> TotalPorConteudoAsync(int conteudoId);
         }
 
         public class VisualizacaoService : IVisualizacaoService
         {
+
             private readonly IVisualizacaoRepository _repo;
+
 
             public VisualizacaoService(IVisualizacaoRepository repo)
             {
@@ -389,6 +408,10 @@ namespace StreamingAPI
                 };
 
                 await _repo.AdicionarAsync(visualizacao);
+            }
+            public async Task<int> TotalPorConteudoAsync(int conteudoId)
+            {
+                return await _repo.ContarPorConteudoAsync(conteudoId);
             }
 
             public async Task<IEnumerable<VisualizacaoDTO>> ListarPorUsuarioAsync(int usuarioId)

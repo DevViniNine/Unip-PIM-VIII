@@ -196,6 +196,37 @@
   },
   {
     "ContainingType": "StreamingAPI.CurtidaController",
+    "Method": "ExisteCurtida",
+    "RelativePath": "api/Curtida/existe",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "conteudoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "StreamingAPI.CurtidaController",
     "Method": "ListarCurtidas",
     "RelativePath": "api/Curtida/listar/{conteudoId}",
     "HttpMethod": "GET",
@@ -469,6 +500,22 @@
     "Method": "Registrar",
     "RelativePath": "api/Visualizacao/registrar/{conteudoId}",
     "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "conteudoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StreamingAPI.VisualizacaoController",
+    "Method": "GetTotal",
+    "RelativePath": "api/Visualizacao/total/{conteudoId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

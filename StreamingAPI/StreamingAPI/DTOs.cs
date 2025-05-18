@@ -71,6 +71,9 @@ public class ConteudoUpdateDTO
         {
             public int UsuarioId { get; set; }
             public int ConteudoId { get; set; }
+
+            public string UsuarioNome { get; set; }
+
             public string Texto { get; set; }
         }
 

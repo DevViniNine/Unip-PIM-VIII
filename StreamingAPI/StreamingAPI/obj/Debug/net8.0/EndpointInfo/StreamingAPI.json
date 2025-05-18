@@ -370,6 +370,53 @@
         }
       }
     },
+    "/api/Curtida/existe": {
+      "get": {
+        "tags": [
+          "Curtida"
+        ],
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "conteudoId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Curtida/descurtir/{conteudoId}": {
       "delete": {
         "tags": [
@@ -944,6 +991,29 @@
         }
       }
     },
+    "/api/Visualizacao/total/{conteudoId}": {
+      "get": {
+        "tags": [
+          "Visualizacao"
+        ],
+        "parameters": [
+          {
+            "name": "conteudoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Visualizacao/populares": {
       "get": {
         "tags": [
@@ -969,6 +1039,10 @@
           "conteudoId": {
             "type": "integer",
             "format": "int32"
+          },
+          "usuarioNome": {
+            "type": "string",
+            "nullable": true
           },
           "texto": {
             "type": "string",

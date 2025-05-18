@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<UsuarioDTO> call, Throwable t) {
                             Toast.makeText(LoginActivity.this, "Erro ao buscar usuário: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+
                         }
 
                     });

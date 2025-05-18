@@ -65,6 +65,9 @@ builder.Services.AddScoped<IComentarioRepository, ComentarioRepository>();
 builder.Services.AddScoped<IComentarioService, ComentarioService>();
 builder.Services.AddScoped<IVisualizacaoRepository, VisualizacaoRepository>();
 builder.Services.AddScoped<IVisualizacaoService, VisualizacaoService>();
+builder.Services.AddScoped<ICurtidaRepository, CurtidaRepository>();
+builder.Services.AddScoped<ICurtidaService, CurtidaService>();
+
 
 //SWAGGER GEN, PARA INTERFACE DO SWAGGER
 builder.Services.AddSwaggerGen(c =>
