@@ -32,16 +32,16 @@ namespace StreamingAPI
         {
             public string Nome { get; set; }
             public string Tipo { get; set; }
-            public string Url { get; set; } // NOVO
+            public string Url { get; set; }
             public string NomeCriador { get; set; }
         }
-public class ConteudoUpdateDTO
-{
-    public string Nome { get; set; }
-    public string Tipo { get; set; }
-    public string Url { get; set; } // NOVO
-    public string NomeCriador { get; set; }
-}
+        public class ConteudoUpdateDTO
+        {
+            public string Nome { get; set; }
+            public string Tipo { get; set; }
+            public string Url { get; set; } 
+            public string NomeCriador { get; set; }
+        }
 
         public class CriadorDTO
         {
@@ -53,6 +53,9 @@ public class ConteudoUpdateDTO
             
             public int Id { get; set; }
             public string Nome { get; set; }
+
+            public int UsuarioId { get; set; }
+
         }
 
         public class ItemPlaylistDTO

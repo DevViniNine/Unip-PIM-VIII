@@ -14,7 +14,7 @@ public partial class StreamingAPIContext : DbContext
     }
 
     public DbSet<Curtida> Curtidas { get; set; }
-    public virtual DbSet<Conteudo> Conteudos { get; set; }
+    public DbSet<Conteudo> Conteudos { get; set; }
 
     public DbSet<Criador> Criadores { get; set; }
 

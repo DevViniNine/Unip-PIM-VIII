@@ -1,19 +1,12 @@
 package com.pim.streamingapp.adapters;
-
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.*;
-import androidx.annotation.NonNull;
-
 import com.pim.streamingapp.ExibirConteudoActivity;
 import com.pim.streamingapp.R;
 import com.pim.streamingapp.model.Conteudo;
-
-import java.util.List;
 
 public class ConteudoAdapter {
 
@@ -25,9 +18,9 @@ public class ConteudoAdapter {
         ImageView imgPreview = view.findViewById(R.id.imgPreview);
 
         txtNome.setText(conteudo.nome);
-        txtCriador.setText("Por: " + conteudo.criador);
+        txtCriador.setText("Por: " + (conteudo.nomeCriador != null ? conteudo.nomeCriador : "Desconhecido"));
 
-        // Ícone por tipo
+
         switch (conteudo.tipo.toLowerCase()) {
             case "video":
                 imgPreview.setImageResource(R.drawable.video_player);
@@ -43,15 +36,15 @@ public class ConteudoAdapter {
                 imgPreview.setImageResource(android.R.drawable.ic_menu_help);
                 break;
 
-        }
+         }
 
-        // Ao clicar → abrir com intent padrão
         view.setOnClickListener(v -> {
             Intent intent = new Intent(context, ExibirConteudoActivity.class);
             intent.putExtra("id", conteudo.id);
             intent.putExtra("nome", conteudo.nome);
             intent.putExtra("tipo", conteudo.tipo);
             intent.putExtra("url", conteudo.url);
+            intent.putExtra("nomeCriador", conteudo.nomeCriador);
             intent.putExtra("criador", conteudo.criador);
             context.startActivity(intent);
 

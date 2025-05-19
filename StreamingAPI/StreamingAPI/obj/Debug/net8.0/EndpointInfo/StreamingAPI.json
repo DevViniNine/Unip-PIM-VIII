@@ -516,6 +516,29 @@
         }
       }
     },
+    "/api/ItemPlaylist/{playlistId}/conteudos": {
+      "get": {
+        "tags": [
+          "ItemPlaylist"
+        ],
+        "parameters": [
+          {
+            "name": "playlistId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Playlist/criar": {
       "post": {
         "tags": [
@@ -559,7 +582,7 @@
         }
       }
     },
-    "/api/Playlist/listar": {
+    "/api/Playlist/MinhasPlaylist": {
       "get": {
         "tags": [
           "Playlist"
@@ -1149,6 +1172,10 @@
           "nome": {
             "type": "string",
             "nullable": true
+          },
+          "usuarioId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

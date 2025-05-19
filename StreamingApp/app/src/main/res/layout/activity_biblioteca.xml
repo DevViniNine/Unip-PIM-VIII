@@ -20,12 +20,13 @@
         android:layout_height="wrap_content" />
 
     <!-- Botões da biblioteca -->
+
     <Button
         android:id="@+id/btnMinhasPlaylists"
-        android:text="Minhas Playlists"
-        android:layout_marginHorizontal="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:text="Minhas Playlists" />
 
     <Button
         android:id="@+id/btnVisualizados"

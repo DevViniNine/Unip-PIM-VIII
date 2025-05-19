@@ -268,6 +268,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "StreamingAPI.ItemPlaylistController",
+    "Method": "ListarConteudosDaPlaylist",
+    "RelativePath": "api/ItemPlaylist/{playlistId}/conteudos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playlistId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "StreamingAPI.PlaylistController",
     "Method": "Alterar",
     "RelativePath": "api/Playlist/alterar/{id}",
@@ -322,8 +338,8 @@
   },
   {
     "ContainingType": "StreamingAPI.PlaylistController",
-    "Method": "Listar",
-    "RelativePath": "api/Playlist/listar",
+    "Method": "MinhasPlaylists",
+    "RelativePath": "api/Playlist/MinhasPlaylist",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

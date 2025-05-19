@@ -197,6 +197,12 @@ namespace StreamingAPI
             _mapper = mapper;
         }
 
+        public async Task<IEnumerable<PlaylistDTO>> ListarDoUsuarioAsync(int usuarioId)
+        {
+            var playlists = await _repository.ListarPorUsuarioAsync(usuarioId);
+            return _mapper.Map<IEnumerable<PlaylistDTO>>(playlists);
+        }
+
         public async Task<PlaylistDTO> CriarAsync(PlaylistDTO dto, int usuarioId)
         {
             var playlist = _mapper.Map<Playlist>(dto);
@@ -206,11 +212,6 @@ namespace StreamingAPI
             return _mapper.Map<PlaylistDTO>(criada);
         }
 
-        public async Task<IEnumerable<PlaylistDTO>> ListarDoUsuarioAsync(int usuarioId)
-        {
-            var playlists = await _repository.ListarPorUsuarioAsync(usuarioId);
-            return _mapper.Map<IEnumerable<PlaylistDTO>>(playlists);
-        }
 
 
 

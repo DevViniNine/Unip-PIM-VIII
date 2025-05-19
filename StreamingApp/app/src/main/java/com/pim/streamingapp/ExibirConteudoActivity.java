@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.*;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.media3.common.MediaItem;
 import androidx.media3.exoplayer.SimpleExoPlayer;
@@ -18,6 +19,8 @@ import androidx.media3.ui.PlayerView;
 
 import com.pim.streamingapp.model.ComentarioDTO;
 import com.pim.streamingapp.model.CurtidaDTO;
+import com.pim.streamingapp.model.ItemPlaylistDTO;
+import com.pim.streamingapp.model.Playlist;
 import com.pim.streamingapp.model.RespostaComentarioDTO;
 import com.pim.streamingapp.model.ResumoCurtidaResponse;
 import com.pim.streamingapp.model.ResumoVisualizacaoResponse;
@@ -53,7 +56,6 @@ public class ExibirConteudoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exibir_conteudo);
 
-        // Dados do conteúdo
         Intent intent = getIntent();
         int conteudoId = intent.getIntExtra("id", 0);
         nome = intent.getStringExtra("nome");
@@ -61,13 +63,62 @@ public class ExibirConteudoActivity extends AppCompatActivity {
         url = intent.getStringExtra("url");
 
 
+        Button btnAdicionarPlaylist = findViewById(R.id.btnPlaylist);
+
+        btnAdicionarPlaylist.setOnClickListener(v -> {
+            ApiService api = RetrofitClient.getApiService(this);
+            SessionManager session = new SessionManager(this);
+            String token = "Bearer " + session.getToken();
+
+
+            // 1. Buscar playlists do usuário
+            api.listarPlaylists(token).enqueue(new Callback<List<Playlist>>() {
+                @Override
+                public void onResponse(Call<List<Playlist>> call, Response<List<Playlist>> response) {
+                    if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
+                        List<Playlist> playlists = response.body();
+                        String[] nomes = new String[playlists.size()];
+                        for (int i = 0; i < playlists.size(); i++) nomes[i] = playlists.get(i).nome;
+
+                        new AlertDialog.Builder(ExibirConteudoActivity.this)
+                                .setTitle("Selecione a playlist")
+                                .setItems(nomes, (dialog, which) -> {
+                                    int playlistId = playlists.get(which).id;
+                                    ItemPlaylistDTO dto = new ItemPlaylistDTO(playlistId, conteudoId);
+
+                                    api.adicionarConteudoNaPlaylist(dto, token).enqueue(new Callback<Void>() {
+                                        @Override
+                                        public void onResponse(Call<Void> call, Response<Void> response) {
+                                            if (response.isSuccessful()) {
+                                                Toast.makeText(ExibirConteudoActivity.this, "Adicionado à playlist!", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(ExibirConteudoActivity.this, "Já está na playlist!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                        @Override
+                                        public void onFailure(Call<Void> call, Throwable t) {
+                                            Toast.makeText(ExibirConteudoActivity.this, "Erro: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                })
+                                .show();
+                    } else {
+                        Toast.makeText(ExibirConteudoActivity.this, "Crie uma playlist antes!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onFailure(Call<List<Playlist>> call, Throwable t) {
+                    Toast.makeText(ExibirConteudoActivity.this, "Falha ao buscar playlists", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
         ImageButton btnInicio = findViewById(R.id.btnInicio);
         btnInicio.setOnClickListener(v -> {
 
-            // Evita criar várias instâncias
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
-            finish(); // opcional: fecha a tela atual
+            finish();
         });
 
 

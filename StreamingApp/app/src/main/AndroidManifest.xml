@@ -15,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StreamingApp"
         tools:targetApi="31">
+
+        <activity
+            android:name=".ConteudoPlaylistActivity"
+            android:exported="false" />
         <activity
             android:name=".MinhasPlaylistsActivity"
             android:exported="false" />
@@ -39,6 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

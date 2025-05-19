@@ -207,13 +207,12 @@ namespace StreamingAPI
         {
             var conteudos = await _context.Conteudos
                 .Include(c => c.Criador)
-                .Select(c => new
+                .Select(c => new ConteudoDTO
                 {
-                    c.Id,
-                    c.Nome,
-                    c.Tipo,
-                    c.Url, // NOVO
-                    Criador = c.Criador.Nome
+                    Nome = c.Nome,
+                    Tipo = c.Tipo,
+                    Url = c.Url,
+                    NomeCriador = c.Criador != null ? c.Criador.Nome : null
                 })
                 .ToListAsync();
 
@@ -345,15 +344,17 @@ namespace StreamingAPI
             return Ok(result);
         }
 
-        [HttpGet("listar")]
-        [Authorize]
-        public async Task<IActionResult> Listar()
-        {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "id");
-            if (userIdClaim == null) return Unauthorized("Usuário não autenticado.");
 
-            int userId = int.Parse(userIdClaim.Value);
-            var playlists = await _playlistService.ListarDoUsuarioAsync(userId);
+        [HttpGet("MinhasPlaylist")]
+        [Authorize]
+        public async Task<IActionResult> MinhasPlaylists()
+        {
+            var usuarioIdStr = User.Claims.FirstOrDefault(x => x.Type == "id")?.Value;
+            if (string.IsNullOrEmpty(usuarioIdStr)) return Unauthorized();
+
+            int usuarioId = int.Parse(usuarioIdStr);
+
+            var playlists = await _playlistService.ListarDoUsuarioAsync(usuarioId);
             return Ok(playlists);
         }
 
@@ -409,10 +410,12 @@ namespace StreamingAPI
     public class ItemPlaylistController : ControllerBase
     {
         private readonly IItemPlaylistService _service;
+        private readonly StreamingAPIContext _context;
 
-        public ItemPlaylistController(IItemPlaylistService service)
+        public ItemPlaylistController(IItemPlaylistService service, StreamingAPIContext context)
         {
             _service = service;
+            _context = context;
         }
 
         [HttpPost]
@@ -434,10 +437,37 @@ namespace StreamingAPI
             }
         }
 
+        [HttpGet("{playlistId}/conteudos")]
+        public async Task<IActionResult> ListarConteudosDaPlaylist(int playlistId)
+        {
+            var conteudos = await _context.ItemPlaylist
+                .Where(ip => ip.PlaylistID == playlistId)
+                .Join(_context.Conteudos,
+                      ip => ip.ConteudoID,
+                      c => c.Id,
+                      (ip, c) => c)
+                .Join(_context.Criadores,
+                      c => c.CriadorID,
+                      criador => criador.Id,
+                      (c, criador) => new ConteudoDTO
+                      {
+                          Nome = c.Nome,
+                          Tipo = c.Tipo,
+                          Url = c.Url,
+                          NomeCriador = criador.Nome // Preenchendo corretamente!
+                      })
+                .ToListAsync();
+
+            return Ok(conteudos);
+        }
+
+
+
         [HttpGet]
         public async Task<IActionResult> ListarTodos()
         {
             var lista = await _service.ListarTodosAsync();
+
             return Ok(lista);
         }
     }

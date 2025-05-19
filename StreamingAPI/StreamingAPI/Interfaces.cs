@@ -83,6 +83,7 @@ namespace StreamingAPI
     {
         Task<PlaylistDTO> CriarAsync(PlaylistDTO dto, int usuarioId);
         Task<IEnumerable<PlaylistDTO>> ListarDoUsuarioAsync(int usuarioId);
+
         Task<PlaylistDTO> AlterarAsync(PlaylistDTO dto, int usuarioId);
         Task DeletarAsync(int id, int usuarioId);
     }
@@ -90,6 +91,7 @@ namespace StreamingAPI
     {
         Task<Playlist> IncluirAsync(Playlist playlist);
         Task<IEnumerable<Playlist>> ListarPorUsuarioAsync(int usuarioId);
+
     }
 
 

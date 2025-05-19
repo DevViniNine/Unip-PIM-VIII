@@ -1,53 +1,57 @@
 package com.pim.streamingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.*;
 import android.app.AlertDialog;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.pim.streamingapp.adapters.PlaylistAdapter;
 import com.pim.streamingapp.model.Playlist;
-import com.pim.streamingapp.session.SessionManager;
-import com.pim.streamingapp.api.ApiService;
-import com.pim.streamingapp.api.RetrofitClient;
-
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
+import retrofit2.*;
 
 public class MinhasPlaylistsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Button btnNovaPlaylist;
     private PlaylistAdapter adapter;
-    private SessionManager session;
     private ApiService api;
+    private SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_minhas_playlists);
 
-        session = new SessionManager(this);
-        api = RetrofitClient.getApiService(this);
-
         recyclerView = findViewById(R.id.recyclerPlaylists);
         btnNovaPlaylist = findViewById(R.id.btnNovaPlaylist);
 
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        session = new SessionManager(this);
+        api = RetrofitClient.getApiService(this);
+
+
+        ImageButton btnInicio = findViewById(R.id.btnInicio);
+        btnInicio.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
+        });
+        ImageButton btnBiblioteca = findViewById(R.id.btnBiblioteca);
+        btnBiblioteca.setOnClickListener(v -> {
+            Intent intent = new Intent(this, BibliotecaActivity.class);
+            startActivity(intent);
+        });
 
         btnNovaPlaylist.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Nome da nova playlist");
-
+            builder.setTitle("Nova Playlist");
             final EditText input = new EditText(this);
             builder.setView(input);
 
@@ -55,24 +59,24 @@ public class MinhasPlaylistsActivity extends AppCompatActivity {
                 String nome = input.getText().toString().trim();
                 if (!nome.isEmpty()) {
                     Playlist nova = new Playlist(0, nome);
-                    api.criarPlaylist(nova, "Bearer " + session.getToken()).enqueue(new Callback<Playlist>() {
+                    api.criarPlaylist(nova, "Bearer " + session.getToken()).enqueue(new Callback<Void>() {
                         @Override
-                        public void onResponse(Call<Playlist> call, Response<Playlist> response) {
+                        public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
                                 Toast.makeText(MinhasPlaylistsActivity.this, "Playlist criada", Toast.LENGTH_SHORT).show();
-                                carregarPlaylists(); // Atualiza a lista
+                                carregarPlaylists();
                             } else {
-                                Toast.makeText(MinhasPlaylistsActivity.this, "Erro ao criar", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MinhasPlaylistsActivity.this, "Erro ao criar playlist", Toast.LENGTH_SHORT).show();
                             }
                         }
+
                         @Override
-                        public void onFailure(Call<Playlist> call, Throwable t) {
+                        public void onFailure(Call<Void> call, Throwable t) {
                             Toast.makeText(MinhasPlaylistsActivity.this, "Falha: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
             });
-
             builder.setNegativeButton("Cancelar", null);
             builder.show();
         });
@@ -80,19 +84,21 @@ public class MinhasPlaylistsActivity extends AppCompatActivity {
         carregarPlaylists();
     }
 
+
     private void carregarPlaylists() {
-        api.listarPlaylistsDoUsuario("Bearer " + session.getToken()).enqueue(new Callback<List<Playlist>>() {
+        api.listarPlaylists("Bearer " + session.getToken()).enqueue(new Callback<List<Playlist>>() {
             @Override
             public void onResponse(Call<List<Playlist>> call, Response<List<Playlist>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     adapter = new PlaylistAdapter(MinhasPlaylistsActivity.this, response.body());
                     recyclerView.setAdapter(adapter);
+                } else {
+                    Toast.makeText(MinhasPlaylistsActivity.this, "Erro ao carregar playlists", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<List<Playlist>> call, Throwable t) {
-                Toast.makeText(MinhasPlaylistsActivity.this, "Erro: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MinhasPlaylistsActivity.this, "Falha: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

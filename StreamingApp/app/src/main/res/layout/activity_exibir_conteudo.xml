@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Nome do App -->
     <TextView
         android:id="@+id/txtTituloApp"
         android:text="StreamingApp"
@@ -20,7 +18,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Player ExoPlayer para vídeos -->
     <androidx.media3.ui.PlayerView
         android:id="@+id/playerView"
         android:layout_width="match_parent"
@@ -30,7 +27,6 @@
         android:visibility="gone"
         android:background="#000000" />
 
-    <!-- Frame para imagens/áudios -->
     <FrameLayout
         android:id="@+id/conteudoContainer"
         android:layout_width="match_parent"
@@ -71,8 +67,6 @@
         </LinearLayout>
     </LinearLayout>
 
-
-    <!-- Botões Curtir, Playlist, Download -->
     <LinearLayout
         android:id="@+id/interacaoLayout"
         android:layout_width="match_parent"
@@ -107,7 +101,6 @@
             android:text="Download" />
     </LinearLayout>
 
-    <!-- Comentário -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -172,7 +165,6 @@
             android:padding="8dp" />
     </ScrollView>
 
-    <!-- Barra inferior -->
     <LinearLayout
         android:id="@+id/bottomBar"
         android:orientation="horizontal"

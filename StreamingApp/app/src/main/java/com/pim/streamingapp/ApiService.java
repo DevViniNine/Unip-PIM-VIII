@@ -63,10 +63,6 @@ public interface ApiService {
     Call<ResumoVisualizacaoResponse> getTotalVisualizacoes(@Path("conteudoId") int conteudoId);
 
 
-    // Criar playlist
-    @POST("api/Playlist/criar")
-    Call<Void> criarPlaylist(@Body Playlist playlist, @Header("Authorization") String token);
-
     // Alterar playlist
     @PUT("api/Playlist/alterar/{id}")
     Call<Void> alterarPlaylist(@Path("id") int id, @Body Playlist playlist, @Header("Authorization") String token);
@@ -76,10 +72,20 @@ public interface ApiService {
     Call<Void> deletarPlaylist(@Path("id") int id, @Header("Authorization") String token);
 
     // Listar playlists (supondo que você tenha esse endpoint futuramente)
-    @GET("api/Playlist/listar")
+    @POST("api/Playlist/criar")
+    Call<Void> criarPlaylist(@Body Playlist playlist, @Header("Authorization") String token);
+
+    @GET("api/Playlist/MinhasPlaylist")
     Call<List<Playlist>> listarPlaylists(@Header("Authorization") String token);
 
+    @GET("api/Playlist/conteudos/{playlistId}")
+    Call<List<Conteudo>> listarConteudosDaPlaylist(@Path("playlistId") int playlistId);
 
-    Call<List<Playlist>> listarPlaylistsDoUsuario(String s);
+    @POST("api/ItemPlaylist")
+    Call<Void> adicionarConteudoNaPlaylist(@Body ItemPlaylistDTO dto, @Header("Authorization") String token);
+
+    @GET("api/ItemPlaylist/{playlistId}/conteudos")
+    Call<List<Conteudo>> listarConteudosDaPlaylist(@Path("playlistId") int playlistId, @Header("Authorization") String token);
+
 }
 

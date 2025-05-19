@@ -1,6 +1,13 @@
 package com.pim.streamingapp.model;
 
-public Playlist(int id, String nome) {
-    this.id = id;
-    this.nome = nome;
+public class Playlist {
+    public int id;
+    public String nome;
+
+    public Playlist() {}
+
+    public Playlist(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
 }

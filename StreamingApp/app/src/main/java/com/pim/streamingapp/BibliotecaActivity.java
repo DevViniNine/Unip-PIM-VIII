@@ -19,17 +19,26 @@ public class BibliotecaActivity extends AppCompatActivity {
         Button btnCurtidos = findViewById(R.id.btnCurtidos);
         Button btnCriar = findViewById(R.id.btnCriarConteudo);
         ImageButton btnInicio = findViewById(R.id.btnInicio);
+
+
         btnInicio.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
-            // Evita criar várias instâncias
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
-            finish(); // opcional: fecha a tela atual
+            finish();
+        });
+        ImageButton btnBiblioteca = findViewById(R.id.btnBiblioteca);
+        btnBiblioteca.setOnClickListener(v -> {
+            Toast.makeText(this, "Você já está na tela Biblioteca.", Toast.LENGTH_SHORT).show();
         });
 
-        btnPlaylists.setOnClickListener(v -> {
-            // TODO: abrir tela de playlists
+
+        Button btnMinhasPlaylists = findViewById(R.id.btnMinhasPlaylists);
+        btnMinhasPlaylists.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MinhasPlaylistsActivity.class);
+            startActivity(intent);
         });
+
 
         btnVisualizados.setOnClickListener(v -> {
             // TODO: abrir visualizados
