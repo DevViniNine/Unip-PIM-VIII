@@ -165,55 +165,10 @@
             android:padding="8dp" />
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/bottomBar"
-        android:orientation="horizontal"
-        android:gravity="center"
+    <include
+        android:id="@+id/bottomNavContainer"
+        layout="@layout/barra_de_botoes"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#EEEEEE"
-        android:padding="8dp"
-        android:weightSum="4">
-
-        <ImageButton
-            android:id="@+id/btnVoce"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Você"
-            android:importantForAccessibility="yes"
-            android:scaleType="fitCenter"
-            android:src="@drawable/perfil" />
-
-        <ImageButton
-            android:id="@+id/btnInicio"
-            android:scaleType="fitCenter"
-            android:src="@drawable/home_page"
-            android:contentDescription="Início"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless" />
-
-        <ImageButton
-            android:id="@+id/btnBiblioteca"
-            android:src="@drawable/library"
-            android:scaleType="fitCenter"
-            android:contentDescription="Biblioteca"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless" />
-
-        <ImageButton
-            android:id="@+id/btnConfig"
-            android:scaleType="fitCenter"
-            android:src="@drawable/config"
-            android:contentDescription="Configurações"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 </LinearLayout>

@@ -19,27 +19,27 @@ public class RetrofitClient {
         String token = session.getToken();
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY); // Mostra tudo!
+        httpClient.addInterceptor(logging);
         if (token != null) {
             httpClient.addInterceptor(chain -> {
                 Request original = chain.request();
                 Request.Builder requestBuilder = original.newBuilder()
                         .header("Authorization", "Bearer " + token)
                         .method(original.method(), original.body());
+                android.util.Log.d("JWT_TOKEN", "Enviando token apartir do interceptor: " + token);
                 return chain.proceed(requestBuilder.build());
             });
         }
+        return new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(httpClient.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiService.class);
 
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:5127/") // ou IP real da API
-                    //.baseUrl("http://192.168.1.11:5127/") // ou IP real da API
-                    .client(httpClient.build())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-
-        return retrofit.create(ApiService.class);
+    }
     }
 
-}
+

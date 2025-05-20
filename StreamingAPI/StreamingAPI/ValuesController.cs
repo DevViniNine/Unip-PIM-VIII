@@ -209,6 +209,7 @@ namespace StreamingAPI
                 .Include(c => c.Criador)
                 .Select(c => new ConteudoDTO
                 {
+                    Id = c.Id,
                     Nome = c.Nome,
                     Tipo = c.Tipo,
                     Url = c.Url,

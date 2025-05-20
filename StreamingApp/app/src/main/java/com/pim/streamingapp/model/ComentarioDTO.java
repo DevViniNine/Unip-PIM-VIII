@@ -5,4 +5,5 @@ public class ComentarioDTO {
     public int conteudoId;
     public String texto;
     public String usuarioNome;
+    public String dataComentario;
 }

@@ -30,6 +30,7 @@ namespace StreamingAPI
 
         public class ConteudoDTO
         {
+            public int Id { get; set; }
             public string Nome { get; set; }
             public string Tipo { get; set; }
             public string Url { get; set; }
@@ -37,6 +38,7 @@ namespace StreamingAPI
         }
         public class ConteudoUpdateDTO
         {
+            public int Id { get; set; }
             public string Nome { get; set; }
             public string Tipo { get; set; }
             public string Url { get; set; } 
@@ -78,12 +80,16 @@ namespace StreamingAPI
             public string UsuarioNome { get; set; }
 
             public string Texto { get; set; }
+
+            public DateTime DataComentario { get; set; }
         }
 
         public class VisualizacaoDTO
         {
             public int UsuarioId { get; set; }
             public int ConteudoId { get; set; }
+            public string NomeConteudo { get; set; }
+            public string TipoConteudo { get; set; }
             public DateTime DataVisualizacao { get; set; }
         }
     }

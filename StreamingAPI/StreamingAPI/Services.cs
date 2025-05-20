@@ -361,7 +361,8 @@ namespace StreamingAPI
                 {
                     UsuarioId = usuarioId,
                     ConteudoId = conteudoId,
-                    Texto = texto
+                    Texto = texto,
+                    DataComentario = DateTime.Now
                 };
 
                 await _repo.AdicionarAsync(comentario);
@@ -375,7 +376,8 @@ namespace StreamingAPI
                     UsuarioId = c.UsuarioId,
                     ConteudoId = c.ConteudoId,
                     Texto = c.Texto,
-                    UsuarioNome = c.Usuario?.Nome // <- pegar o nome se tiver include
+                    UsuarioNome = c.Usuario?.Nome,
+                    DataComentario = c.DataComentario
                 });
             }
 
@@ -417,12 +419,15 @@ namespace StreamingAPI
 
             public async Task<IEnumerable<VisualizacaoDTO>> ListarPorUsuarioAsync(int usuarioId)
             {
+                // Certifique-se de que seu repo faz Include(v => v.Conteudo)
                 var lista = await _repo.ListarPorUsuarioAsync(usuarioId);
 
                 return lista.Select(v => new VisualizacaoDTO
                 {
                     UsuarioId = v.UsuarioId,
                     ConteudoId = v.ConteudoId,
+                    NomeConteudo = v.Conteudo?.Nome,    // <-- Aqui pega nome
+                    TipoConteudo = v.Conteudo?.Tipo,    // <-- Aqui pega tipo
                     DataVisualizacao = v.DataVisualizacao
                 });
             }

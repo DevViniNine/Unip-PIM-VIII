@@ -1,6 +1,7 @@
 package com.pim.streamingapp.adapters;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
@@ -40,6 +41,7 @@ public class ConteudoAdapter {
 
         view.setOnClickListener(v -> {
             Intent intent = new Intent(context, ExibirConteudoActivity.class);
+            Log.d("CONTEUDO_ADAPTER", "ID enviado: " + conteudo.id);
             intent.putExtra("id", conteudo.id);
             intent.putExtra("nome", conteudo.nome);
             intent.putExtra("tipo", conteudo.tipo);

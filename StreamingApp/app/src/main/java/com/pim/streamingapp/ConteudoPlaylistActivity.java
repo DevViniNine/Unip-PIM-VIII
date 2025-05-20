@@ -1,18 +1,13 @@
 package com.pim.streamingapp;
-
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.view.View;
 import android.widget.Toast;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.pim.streamingapp.model.Conteudo;
 import com.pim.streamingapp.adapters.ConteudoAdapter;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,15 +22,14 @@ public class ConteudoPlaylistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conteudo_playlist);
+        BottomBarUtil.configurarBotoesBarraInferior(this);
 
-        // Pegando o ID da playlist passada pela intent
         playlistId = getIntent().getIntExtra("playlistId", -1);
         String nomePlaylist = getIntent().getStringExtra("playlistNome");
 
         layoutConteudos = findViewById(R.id.layoutConteudos);
         txtTituloPlaylist = findViewById(R.id.txtTituloPlaylist);
 
-        // Se quiser mostrar o nome da playlist no topo
         if (nomePlaylist != null) {
             txtTituloPlaylist.setText(nomePlaylist);
         }
@@ -53,7 +47,7 @@ public class ConteudoPlaylistActivity extends AppCompatActivity {
         SessionManager session = new SessionManager(this);
         String token = "Bearer " + session.getToken();
 
-        api.listarConteudosDaPlaylist(playlistId, token).enqueue(new Callback<List<Conteudo>>() {
+        api.listarConteudosDaPlaylist(playlistId).enqueue(new Callback<List<Conteudo>>() {
             @Override
             public void onResponse(Call<List<Conteudo>> call, Response<List<Conteudo>> response) {
                 if (response.isSuccessful() && response.body() != null) {

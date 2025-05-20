@@ -180,6 +180,7 @@ namespace StreamingAPI
                 return await _context.Comentarios
                     .Where(c => c.ConteudoId == conteudoId)
                     .Include(c => c.Usuario)
+                    .OrderByDescending(c => c.DataComentario)
                     .ToListAsync();
             }
         }
@@ -209,7 +210,7 @@ namespace StreamingAPI
             {
                 return await _context.Visualizacoes
                     .Where(v => v.UsuarioId == usuarioId)
-                    .Include(v => v.Conteudo)
+                    .Include(v => v.Conteudo) 
                     .OrderByDescending(v => v.DataVisualizacao)
                     .ToListAsync();
             }

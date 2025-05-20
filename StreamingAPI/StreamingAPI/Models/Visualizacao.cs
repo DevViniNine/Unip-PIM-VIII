@@ -11,4 +11,6 @@ public class Visualizacao
     public Conteudo Conteudo { get; set; }
 
     public DateTime DataVisualizacao { get; set; } = DateTime.UtcNow;
+
+
 }

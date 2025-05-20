@@ -27,7 +27,9 @@ import com.pim.streamingapp.model.ResumoVisualizacaoResponse;
 
 import java.io.InputStream;
 import java.net.URL;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,7 +49,7 @@ public class ExibirConteudoActivity extends AppCompatActivity {
         return String.format("%02d:%02d", minutos, segundos);
     }
 
-    private String tipo, url, nome;
+    private String tipo, url, nome, nomeCriador;
     private int totalCurtidas = 0;
 
     @androidx.media3.common.util.UnstableApi
@@ -55,24 +57,25 @@ public class ExibirConteudoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exibir_conteudo);
+        BottomBarUtil.configurarBotoesBarraInferior(this);
 
         Intent intent = getIntent();
         int conteudoId = intent.getIntExtra("id", 0);
         nome = intent.getStringExtra("nome");
         tipo = intent.getStringExtra("tipo");
         url = intent.getStringExtra("url");
-
+        nomeCriador = intent.getStringExtra("nomeCriador");
 
         Button btnAdicionarPlaylist = findViewById(R.id.btnPlaylist);
+
 
         btnAdicionarPlaylist.setOnClickListener(v -> {
             ApiService api = RetrofitClient.getApiService(this);
             SessionManager session = new SessionManager(this);
             String token = "Bearer " + session.getToken();
 
-
             // 1. Buscar playlists do usuário
-            api.listarPlaylists(token).enqueue(new Callback<List<Playlist>>() {
+            api.listarPlaylists().enqueue(new Callback<List<Playlist>>() {
                 @Override
                 public void onResponse(Call<List<Playlist>> call, Response<List<Playlist>> response) {
                     if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
@@ -86,7 +89,7 @@ public class ExibirConteudoActivity extends AppCompatActivity {
                                     int playlistId = playlists.get(which).id;
                                     ItemPlaylistDTO dto = new ItemPlaylistDTO(playlistId, conteudoId);
 
-                                    api.adicionarConteudoNaPlaylist(dto, token).enqueue(new Callback<Void>() {
+                                    api.adicionarConteudoNaPlaylist(dto).enqueue(new Callback<Void>() {
                                         @Override
                                         public void onResponse(Call<Void> call, Response<Void> response) {
                                             if (response.isSuccessful()) {
@@ -113,16 +116,6 @@ public class ExibirConteudoActivity extends AppCompatActivity {
             });
         });
 
-        ImageButton btnInicio = findViewById(R.id.btnInicio);
-        btnInicio.setOnClickListener(v -> {
-
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
-        });
-
-
-
 
         // Bind de componentes
         playerView = findViewById(R.id.playerView);
@@ -132,24 +125,22 @@ public class ExibirConteudoActivity extends AppCompatActivity {
         LinearLayout comentariosContainer = findViewById(R.id.comentariosContainer);
 
         SessionManager session = new SessionManager(this);
-        String token = "Bearer " + session.getToken();
         int usuarioId = session.getUsuarioId();
 
         TextView tituloApp = findViewById(R.id.txtTituloApp);
         LinearLayout interacaoLayout = findViewById(R.id.interacaoLayout);
         Button btnComentar = findViewById(R.id.btnComentar);
         TextView txtComentarios = findViewById(R.id.txtComentarios);
-        LinearLayout bottomBar = findViewById(R.id.bottomBar);
+        LinearLayout bottomBar = findViewById(R.id.bottomNav);
 
         Toast.makeText(this, "Carregando conteúdo...", Toast.LENGTH_SHORT).show();
         ApiService api = RetrofitClient.getApiService(this);
 
-        api.registrarVisualizacao(conteudoId, token).enqueue(new Callback<Void>() {
+        api.registrarVisualizacao(conteudoId).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Log.d("VISUALIZACAO", "Visualização registrada com sucesso");
             }
-
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.e("VISUALIZACAO", "Falha ao registrar visualização: " + t.getMessage());
@@ -167,35 +158,27 @@ public class ExibirConteudoActivity extends AppCompatActivity {
             ComentarioDTO comentario = new ComentarioDTO();
             comentario.usuarioId = session.getUsuarioId();
             comentario.conteudoId = conteudoId;
+            comentario.usuarioNome = session.getUsuarioNome();
             comentario.texto = texto;
 
-            api.comentar(conteudoId, comentario, token).enqueue(new Callback<Void>() {
+            api.comentar(conteudoId, comentario).enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()) {
                         Toast.makeText(ExibirConteudoActivity.this, "Comentado!", Toast.LENGTH_SHORT).show();
                         edtComentario.setText("");
 
-                        // Recarrega comentários (opcional)
                         comentariosContainer.removeAllViews();
-                        api.listarComentarios(conteudoId).enqueue(new Callback<RespostaComentarioDTO>() {
-                            @Override
-                            public void onResponse(Call<RespostaComentarioDTO> call, Response<RespostaComentarioDTO> response) {
-                                if (response.isSuccessful() && response.body() != null) {
-                                    for (ComentarioDTO c : response.body().comentarios) {
-                                        TextView txtComentario = new TextView(ExibirConteudoActivity.this);
-                                        txtComentario.setText("- " + c.texto);
-                                        txtComentario.setPadding(8, 4, 8, 4);
-                                        comentariosContainer.addView(txtComentario);
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<RespostaComentarioDTO> call, Throwable t) { }
-                        });
+                        carregarComentarios(api, conteudoId, comentariosContainer);
                     } else {
-                        Toast.makeText(ExibirConteudoActivity.this, "Erro ao comentar", Toast.LENGTH_SHORT).show();
+                        String msg = "Erro ao comentar";
+                        if (response.errorBody() != null) {
+                            try {
+                                msg += ": " + response.errorBody().string();
+                            } catch (Exception e) { }
+                        }
+                        Toast.makeText(ExibirConteudoActivity.this, msg, Toast.LENGTH_LONG).show();
+                        Log.e("COMENTARIO", "Erro: " + msg + " - Código: " + response.code());
                     }
                 }
 
@@ -206,31 +189,11 @@ public class ExibirConteudoActivity extends AppCompatActivity {
             });
         });
 
-
-
-        api.listarComentarios(conteudoId).enqueue(new Callback<RespostaComentarioDTO>() {
-            @Override
-            public void onResponse(Call<RespostaComentarioDTO> call, Response<RespostaComentarioDTO> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    for (ComentarioDTO c : response.body().comentarios) {
-                        TextView txtComentario = new TextView(ExibirConteudoActivity.this);
-                        txtComentario.setText(c.usuarioNome + ": " + c.texto);
-                        txtComentario.setPadding(8, 4, 8, 4);
-                        comentariosContainer.addView(txtComentario);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RespostaComentarioDTO> call, Throwable t) {
-                Toast.makeText(ExibirConteudoActivity.this, "Erro ao carregar comentários", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        carregarComentarios(api, conteudoId, comentariosContainer);
 
         final boolean[] curtiu = {false};
 
-        api.verificarCurtida(usuarioId, conteudoId, token).enqueue(new Callback<Boolean>() {
+        api.verificarCurtida(usuarioId, conteudoId).enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -240,13 +203,13 @@ public class ExibirConteudoActivity extends AppCompatActivity {
                     btnCurtir.setText("Curtir");
                 }
             }
-
             @Override
             public void onFailure(Call<Boolean> call, Throwable t) {
                 btnCurtir.setText("Curtir");
                 Log.e("API", "Erro ao verificar curtida: " + t.getMessage());
             }
         });
+
         TextView txtTotalCurtidas = findViewById(R.id.txtTotalCurtidas);
 
         api.listarCurtidas(conteudoId).enqueue(new Callback<ResumoCurtidaResponse>() {
@@ -283,7 +246,7 @@ public class ExibirConteudoActivity extends AppCompatActivity {
 
         btnCurtir.setOnClickListener(v -> {
             if (!curtiu[0]) {
-                api.curtirConteudo(conteudoId, token).enqueue(new Callback<Void>() {
+                api.curtirConteudo(conteudoId).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
@@ -296,14 +259,13 @@ public class ExibirConteudoActivity extends AppCompatActivity {
                             Toast.makeText(ExibirConteudoActivity.this, "Erro ao curtir", Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         Toast.makeText(ExibirConteudoActivity.this, "Falha na conexão", Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
-                api.descurtirConteudo(conteudoId, token).enqueue(new Callback<Void>() {
+                api.descurtirConteudo(conteudoId).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
@@ -316,8 +278,6 @@ public class ExibirConteudoActivity extends AppCompatActivity {
                             Toast.makeText(ExibirConteudoActivity.this, "Erro ao descurtir", Toast.LENGTH_SHORT).show();
                         }
                     }
-
-
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         Toast.makeText(ExibirConteudoActivity.this, "Falha na conexão", Toast.LENGTH_SHORT).show();
@@ -336,6 +296,75 @@ public class ExibirConteudoActivity extends AppCompatActivity {
         });
 
         exibirConteudo();
+    }
+
+    // Novo método para carregar e exibir comentários, ordenando e mostrando a data
+    private void carregarComentarios(ApiService api, int conteudoId, LinearLayout comentariosContainer) {
+        api.listarComentarios(conteudoId).enqueue(new Callback<RespostaComentarioDTO>() {
+            @Override
+            public void onResponse(Call<RespostaComentarioDTO> call, Response<RespostaComentarioDTO> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<ComentarioDTO> comentarios = response.body().comentarios;
+                    // Ordenar do mais novo para o mais antigo usando o campo dataComentario
+                    Collections.sort(comentarios, new Comparator<ComentarioDTO>() {
+                        @Override
+                        public int compare(ComentarioDTO a, ComentarioDTO b) {
+                            Date da = parseIsoDate(a.dataComentario);
+                            Date db = parseIsoDate(b.dataComentario);
+                            if (da == null && db == null) return 0;
+                            if (da == null) return 1;
+                            if (db == null) return -1;
+                            return db.compareTo(da); // Mais novo primeiro
+                        }
+                    });
+
+                    comentariosContainer.removeAllViews();
+                    for (ComentarioDTO c : comentarios) {
+                        TextView txtComentario = new TextView(ExibirConteudoActivity.this);
+                        String dataFormatada = formatarDataUtcParaLocal(c.dataComentario);
+                        txtComentario.setText(dataFormatada + " - " + c.usuarioNome + ": " + c.texto);
+                        txtComentario.setPadding(8, 4, 8, 4);
+                        comentariosContainer.addView(txtComentario);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RespostaComentarioDTO> call, Throwable t) {
+                Toast.makeText(ExibirConteudoActivity.this, "Erro ao carregar comentários", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // Função para converter data UTC (ISO) para data local formatada
+    private String formatarDataUtcParaLocal(String utcIsoDate) {
+        if (utcIsoDate == null) return "";
+        try {
+            String pattern = utcIsoDate.contains(".") ? "yyyy-MM-dd'T'HH:mm:ss.SSS" : "yyyy-MM-dd'T'HH:mm:ss";
+            if (utcIsoDate.endsWith("Z")) utcIsoDate = utcIsoDate.replace("Z", "");
+            SimpleDateFormat isoFormat = new SimpleDateFormat(pattern, Locale.getDefault());
+            isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date date = isoFormat.parse(utcIsoDate);
+            SimpleDateFormat localFormat = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
+            localFormat.setTimeZone(TimeZone.getDefault());
+            return localFormat.format(date);
+        } catch (Exception e) {
+            return utcIsoDate;
+        }
+    }
+
+    // Função para parsear ISO para Date, para ordenação
+    private Date parseIsoDate(String isoDate) {
+        if (isoDate == null) return null;
+        try {
+            String pattern = isoDate.contains(".") ? "yyyy-MM-dd'T'HH:mm:ss.SSS" : "yyyy-MM-dd'T'HH:mm:ss";
+            if (isoDate.endsWith("Z")) isoDate = isoDate.replace("Z", "");
+            SimpleDateFormat isoFormat = new SimpleDateFormat(pattern, Locale.getDefault());
+            isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            return isoFormat.parse(isoDate);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
     @androidx.media3.common.util.UnstableApi

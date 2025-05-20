@@ -21,18 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomBarUtil.configurarBotoesBarraInferior(this);
         feedContainer = findViewById(R.id.feedContainer);
-
-        ImageButton btnInicio = findViewById(R.id.btnInicio);
-        btnInicio.setOnClickListener(v -> {
-            Toast.makeText(this, "Você já está na tela inicial.", Toast.LENGTH_SHORT).show();
-        });
-
-        ImageButton btnBiblioteca = findViewById(R.id.btnBiblioteca);
-        btnBiblioteca.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, BibliotecaActivity.class);
-            startActivity(intent);
-        });
         carregarConteudos();
     }
 

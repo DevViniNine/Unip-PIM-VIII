@@ -28,19 +28,18 @@ public interface ApiService {
     Call<UsuarioDTO> getUsuarioPorEmail(@Path("email") String email);
 
     @POST("api/Curtida/curtir/{id}")
-    Call<Void> curtirConteudo(@Path("id") int conteudoId, @Header("Authorization") String token);
+    Call<Void> curtirConteudo(@Path("id") int conteudoId);
 
     @DELETE("api/Curtida/descurtir/{id}")
-    Call<Void> descurtirConteudo(@Path("id") int conteudoId, @Header("Authorization") String token);
+    Call<Void> descurtirConteudo(@Path("id") int conteudoId);
 
     @GET("api/Curtida/listar")
-    Call<List<CurtidaDTO>> listarCurtidas(@Header("Authorization") String token);
+    Call<List<CurtidaDTO>> listarCurtidas();
 
     @GET("api/Curtida/existe")
     Call<Boolean> verificarCurtida(
             @Query("usuarioId") int usuarioId,
-            @Query("conteudoId") int conteudoId,
-            @Header("Authorization") String token
+            @Query("conteudoId") int conteudoId
     );
 
     @GET("api/Curtida/listar/{id}")
@@ -52,12 +51,11 @@ public interface ApiService {
     @POST("api/Comentario/comentar/{conteudoId}")
     Call<Void> comentar(
             @Path("conteudoId") int conteudoId,
-            @Body ComentarioDTO comentario,
-            @Header("Authorization") String token
+            @Body ComentarioDTO comentario
     );
 
     @POST("api/Visualizacao/registrar/{id}")
-    Call<Void> registrarVisualizacao(@Path("id") int conteudoId, @Header("Authorization") String token);
+    Call<Void> registrarVisualizacao(@Path("id") int conteudoId);
 
     @GET("api/Visualizacao/total/{conteudoId}")
     Call<ResumoVisualizacaoResponse> getTotalVisualizacoes(@Path("conteudoId") int conteudoId);
@@ -65,27 +63,28 @@ public interface ApiService {
 
     // Alterar playlist
     @PUT("api/Playlist/alterar/{id}")
-    Call<Void> alterarPlaylist(@Path("id") int id, @Body Playlist playlist, @Header("Authorization") String token);
+    Call<Void> alterarPlaylist(@Path("id") int id, @Body Playlist playlist);
 
     // Deletar playlist
     @DELETE("api/Playlist/deletar/{id}")
-    Call<Void> deletarPlaylist(@Path("id") int id, @Header("Authorization") String token);
+    Call<Void> deletarPlaylist(@Path("id") int id);
 
     // Listar playlists (supondo que você tenha esse endpoint futuramente)
     @POST("api/Playlist/criar")
-    Call<Void> criarPlaylist(@Body Playlist playlist, @Header("Authorization") String token);
+    Call<Void> criarPlaylist(@Body Playlist playlist);
 
     @GET("api/Playlist/MinhasPlaylist")
-    Call<List<Playlist>> listarPlaylists(@Header("Authorization") String token);
+    Call<List<Playlist>> listarPlaylists();
 
-    @GET("api/Playlist/conteudos/{playlistId}")
-    Call<List<Conteudo>> listarConteudosDaPlaylist(@Path("playlistId") int playlistId);
 
     @POST("api/ItemPlaylist")
-    Call<Void> adicionarConteudoNaPlaylist(@Body ItemPlaylistDTO dto, @Header("Authorization") String token);
+    Call<Void> adicionarConteudoNaPlaylist(@Body ItemPlaylistDTO dto);
 
     @GET("api/ItemPlaylist/{playlistId}/conteudos")
-    Call<List<Conteudo>> listarConteudosDaPlaylist(@Path("playlistId") int playlistId, @Header("Authorization") String token);
+    Call<List<Conteudo>> listarConteudosDaPlaylist(@Path("playlistId") int playlistId);
+
+    @GET("api/Visualizacao/ultimos")
+    Call<RespostaVisualizacaoDTO> listarVisualizacoesRecentes();
 
 }
 

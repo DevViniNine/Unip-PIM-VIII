@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!-- Título -->
     <TextView
         android:id="@+id/txtTitulo"
         android:text="Biblioteca"
@@ -19,7 +18,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Botões da biblioteca -->
 
     <Button
         android:id="@+id/btnMinhasPlaylists"
@@ -52,61 +50,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"/>
 
-    <!-- Espaço para empurrar a barra pro fim -->
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <!-- Barra Inferior -->
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:orientation="horizontal"
-        android:gravity="center"
+    <include
+        android:id="@+id/bottomNavContainer"
+        layout="@layout/barra_de_botoes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EEEEEE"
-        android:padding="8dp"
-        android:weightSum="4">
-
-        <ImageButton
-            android:id="@+id/btnVoce"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Você"
-            android:scaleType="fitCenter"
-            android:src="@drawable/perfil" />
-
-        <ImageButton
-            android:id="@+id/btnInicio"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Início"
-            android:scaleType="fitCenter"
-            android:src="@drawable/home_page" />
-
-        <ImageButton
-            android:id="@+id/btnBiblioteca"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Biblioteca"
-            android:scaleType="fitCenter"
-            android:src="@drawable/library" />
-
-        <ImageButton
-            android:id="@+id/btnConfig"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Configurações"
-            android:scaleType="fitCenter"
-            android:src="@drawable/config" />
-    </LinearLayout>
+        android:layout_alignParentBottom="true" />
 </LinearLayout>

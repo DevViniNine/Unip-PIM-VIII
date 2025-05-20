@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTituloVisualizados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Visualizados recentemente"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"/>
+
+    <!-- Lista de visualizações -->
+
+    <!-- Barra inferior igual ao restante do app -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerVisualizacoes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp" />
+
+    <include
+        android:id="@+id/bottomNavContainer"
+        layout="@layout/barra_de_botoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+</LinearLayout>

@@ -59,7 +59,7 @@ public class MinhasPlaylistsActivity extends AppCompatActivity {
                 String nome = input.getText().toString().trim();
                 if (!nome.isEmpty()) {
                     Playlist nova = new Playlist(0, nome);
-                    api.criarPlaylist(nova, "Bearer " + session.getToken()).enqueue(new Callback<Void>() {
+                    api.criarPlaylist(nova).enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
@@ -86,7 +86,7 @@ public class MinhasPlaylistsActivity extends AppCompatActivity {
 
 
     private void carregarPlaylists() {
-        api.listarPlaylists("Bearer " + session.getToken()).enqueue(new Callback<List<Playlist>>() {
+        api.listarPlaylists().enqueue(new Callback<List<Playlist>>() {
             @Override
             public void onResponse(Call<List<Playlist>> call, Response<List<Playlist>> response) {
                 if (response.isSuccessful() && response.body() != null) {
