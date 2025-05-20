@@ -31,7 +31,7 @@
         android:src="@drawable/library" />
 
     <ImageButton
-        android:id="@+id/btnConfig"
+        android:id="@+id/btnPerfil"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_weight="1"

@@ -21,6 +21,8 @@ namespace StreamingAPI
         {
             Task<Usuario> Incluir(Usuario usuario);
             Task<Usuario> Alterar(Usuario usuario);
+
+            Task<Usuario> ObterPorIdAsync(int id);
             Task<Usuario> Excluir(int id);
             Task<Usuario> SelecionarAsync(int id);
             Task<Usuario> SelecionarPorEmailAsync(string email);
@@ -33,6 +35,11 @@ namespace StreamingAPI
         {
             Task<UsuarioDTO> Incluir(UsuarioDTO usuarioDTO);
             Task<UsuarioDTO> Alterar(UsuarioDTO usuarioDTO);
+
+
+
+            Task<UsuarioDTO> SelecionarPorIdAsync(int id);
+
             Task<UsuarioDTO> Excluir(int id);
             Task<UsuarioDTO> SelecionarAsync(int id);
 

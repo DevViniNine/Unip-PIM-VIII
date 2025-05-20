@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Administração"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Adicione botões/admins extras -->
+    <Button
+        android:id="@+id/btnGerenciarUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gerenciar Usuários"/>
+
+    <Button
+        android:id="@+id/btnGerenciarConteudos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gerenciar Conteúdos"
+        android:layout_marginTop="10dp"/>
+    <!-- ... -->
+
+</LinearLayout>
