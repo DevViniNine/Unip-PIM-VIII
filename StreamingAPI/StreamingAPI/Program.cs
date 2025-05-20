@@ -8,8 +8,10 @@ using static StreamingAPI.Interfaces;
 using static StreamingAPI.Repository;
 using StreamingAPI;
 using AutoMapper;
-using static StreamingAPI.ItemPlaylistService;
 using System.Text.Json.Serialization;
+using static Services.UsuarioService.ItemPlaylistService;
+using Services;
+using static Services.UsuarioService;
 
 
 

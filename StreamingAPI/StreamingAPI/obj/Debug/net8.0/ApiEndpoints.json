@@ -358,6 +358,32 @@
   },
   {
     "ContainingType": "StreamingAPI.UsuarioController",
+    "Method": "GetUsuarioPorId",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StreamingAPI.DTOs\u002BUsuarioDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "StreamingAPI.UsuarioController",
     "Method": "Put",
     "RelativePath": "api/Usuario/alterar/{id}",
     "HttpMethod": "PUT",

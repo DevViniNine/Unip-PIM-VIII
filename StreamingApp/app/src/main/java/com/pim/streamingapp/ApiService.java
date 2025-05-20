@@ -86,8 +86,14 @@ public interface ApiService {
     @GET("api/Visualizacao/ultimos")
     Call<RespostaVisualizacaoDTO> listarVisualizacoesRecentes();
 
-    @GET("/api/Curtida/curtidos")
+    @GET("api/Curtida/curtidos")
     Call<RespostaCurtidosDTO> listarCurtidos();
+
+    @GET("api/Usuario/{id}")
+    Call<UsuarioDTO> getUsuarioPorId(@Path("id") int id);
+
+    @POST("api/Conteudo/cadastrar")
+    Call<Void> cadastrarConteudo(@Body Conteudo conteudo);
 
 }
 

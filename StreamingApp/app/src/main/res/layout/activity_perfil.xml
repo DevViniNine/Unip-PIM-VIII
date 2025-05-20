@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Topo com título -->
+    <TextView
+        android:id="@+id/txtTituloPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Perfil"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="25dp"/>
+
+    <!-- Nome do usuário -->
+    <TextView
+        android:id="@+id/txtNomeUsuarioPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Usuário: --"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="15dp"
+        />
+
+    <!-- Botão para editar dados -->
+    <Button
+        android:id="@+id/btnEditarPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="Alterar Dados Pessoais"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botão para cadastro de criador de conteúdo -->
+    <Button
+        android:id="@+id/btnCadastroCriador"
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar como Criador"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botão para administrador -->
+    <Button
+        android:id="@+id/btnAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="Painel do Administrador"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botão de logout (no fim da tela, em vermelho) -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="Sair"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Barra inferior -->
+    <include layout="@layout/barra_de_botoes" />
+</LinearLayout>

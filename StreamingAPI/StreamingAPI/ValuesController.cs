@@ -8,9 +8,11 @@ using System;
 using System.Security.Claims;
 using static StreamingAPI.DTOs;
 using static StreamingAPI.Interfaces;
-using static StreamingAPI.ItemPlaylistService;
 using static StreamingAPI.Models.Usuario;
 using static StreamingAPI.Repository;
+using static StreamingAPI.IItemPlaylistService;
+
+using static Services.UsuarioService.ItemPlaylistService;
 
 namespace StreamingAPI
 {
@@ -61,6 +63,16 @@ namespace StreamingAPI
             {
                 Token = token
             };
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UsuarioDTO>> GetUsuarioPorId(int id)
+        {
+            var usuario = await _usuarioService.SelecionarPorIdAsync(id);
+            if (usuario == null)
+                return NotFound("Usuário não encontrado.");
+
+            return Ok(usuario);
         }
 
         [HttpGet("listar")]
@@ -583,6 +595,7 @@ namespace StreamingAPI
             var curtidos = await _context.Curtidas
                 .Where(c => c.UsuarioId == userId)
                 .Include(c => c.Conteudo)
+                .ThenInclude(c => c.Criador)
                 .OrderByDescending(c => c.Id) // Mais recente primeiro (opcional)
                 .ToListAsync();
 
@@ -591,7 +604,7 @@ namespace StreamingAPI
                 nome = c.Conteudo.Nome,
                 tipo = c.Conteudo.Tipo,
                 url = c.Conteudo.Url,
-                Criador = c.Conteudo.Criador != null ? c.Conteudo.Criador.Nome : "Desconhecido"
+                nomeCriador = c.Conteudo.Criador != null ? c.Conteudo.Criador.Nome : "Desconhecido"
             }).ToList();
 
             return Ok(new

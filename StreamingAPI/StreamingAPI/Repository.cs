@@ -39,6 +39,7 @@ namespace StreamingAPI
                 return null;
             }
 
+
             public async Task<Usuario> Incluir(Usuario usuario)
             {
                 _context.Usuario.Add(usuario);
@@ -49,6 +50,7 @@ namespace StreamingAPI
             public async Task<Usuario> SelecionarAsync(int id)
             {
                 return await _context.Usuario.FindAsync(id);
+
             }
 
 
@@ -60,6 +62,11 @@ namespace StreamingAPI
 
             {
                 return await _context.Usuario.FirstOrDefaultAsync(u => u.Email == email);
+
+            }
+            public async Task<Usuario> ObterPorIdAsync(int id)
+            {
+                return await _context.Usuario.FirstOrDefaultAsync(u => u.Id == id);
             }
 
         }

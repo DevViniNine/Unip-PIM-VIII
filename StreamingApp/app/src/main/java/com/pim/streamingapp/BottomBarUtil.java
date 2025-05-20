@@ -35,5 +35,20 @@ public class BottomBarUtil {
                 }
             });
         }
+        // Botão Perfil
+        ImageButton btnPerfil = activity.findViewById(R.id.btnPerfil);
+        if (btnPerfil != null) {
+            btnPerfil.setOnClickListener(v -> {
+                // Só troca se não já estiver na tela de perfil
+                if (!(activity instanceof PerfilActivity)) {
+                    Intent intent = new Intent(activity, PerfilActivity.class);
+                    activity.startActivity(intent);
+                    activity.finish();
+                } else {
+                    Toast.makeText(activity, "Você já está no Perfil.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
     }
 }

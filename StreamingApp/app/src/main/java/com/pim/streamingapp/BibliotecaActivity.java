@@ -17,19 +17,10 @@ public class BibliotecaActivity extends AppCompatActivity {
         Button btnVisualizados = findViewById(R.id.btnVisualizados);
         Button btnCurtidos = findViewById(R.id.btnCurtidos);
         Button btnCriar = findViewById(R.id.btnCriarConteudo);
-        ImageButton btnInicio = findViewById(R.id.btnInicio);
+      //  ImageButton btnInicio = findViewById(R.id.btnInicio);
+        BottomBarUtil.configurarBotoesBarraInferior(this);
 
-        btnInicio.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
-        });
 
-        ImageButton btnBiblioteca = findViewById(R.id.btnBiblioteca);
-        btnBiblioteca.setOnClickListener(v -> {
-            Toast.makeText(this, "Você já está na tela Biblioteca.", Toast.LENGTH_SHORT).show();
-        });
 
         Button btnMinhasPlaylists = findViewById(R.id.btnMinhasPlaylists);
         btnMinhasPlaylists.setOnClickListener(v -> {
@@ -48,7 +39,7 @@ public class BibliotecaActivity extends AppCompatActivity {
         });
 
         btnCriar.setOnClickListener(v -> {
-            // TODO: abrir criação de conteúdo
+            startActivity(new Intent(this, CriarConteudoActivity.class));
         });
     }
 }
