@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SessionManager {
+    private static final String KEY_USER_ADMIN = "usuario_admin";
     private static final String PREF_NAME = "user_session";
     private static final String KEY_TOKEN = "jwt_token";
     private static final String KEY_USER_ID = "usuario_id";
@@ -29,6 +30,15 @@ public class SessionManager {
     public void salvarUsuarioId(int id) {
         editor.putInt(KEY_USER_ID, id);
         editor.apply();
+    }
+
+    public void salvarUsuarioAdmin(int admin) {
+        editor.putInt(KEY_USER_ADMIN, admin);
+        editor.apply();
+    }
+
+    public int getUsuarioAdmin() {
+        return prefs.getInt(KEY_USER_ADMIN, 0); // 0: padrão (usuário comum)
     }
 
     public int getUsuarioId() {

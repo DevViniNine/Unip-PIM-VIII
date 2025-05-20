@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,31 +35,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Program.cs",
-              "RelativeDocumentMoniker": "StreamingAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Program.cs",
-              "RelativeToolTip": "StreamingAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
+              "Title": "Services.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Services.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Services.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Services.cs*",
+              "RelativeToolTip": "StreamingAPI\\Services.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T17:42:04.497Z"
+              "WhenOpened": "2025-05-20T17:55:16.954Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Program.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Program.cs*",
+              "RelativeToolTip": "StreamingAPI\\Program.cs*",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAAIUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T17:42:04.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ValuesController.cs",
               "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\ValuesController.cs",
               "RelativeDocumentMoniker": "StreamingAPI\\ValuesController.cs",
-              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\ValuesController.cs",
-              "RelativeToolTip": "StreamingAPI\\ValuesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\ValuesController.cs*",
+              "RelativeToolTip": "StreamingAPI\\ValuesController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-20T17:36:57.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Repository.cs",
               "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Repository.cs",
               "RelativeDocumentMoniker": "StreamingAPI\\Repository.cs",
@@ -67,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Interfaces.cs",
               "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Interfaces.cs",
               "RelativeDocumentMoniker": "StreamingAPI\\Interfaces.cs",

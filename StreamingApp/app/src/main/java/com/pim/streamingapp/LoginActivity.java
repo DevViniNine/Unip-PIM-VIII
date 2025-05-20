@@ -3,12 +3,14 @@ package com.pim.streamingapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.pim.streamingapp.model.LoginRequest;
 import com.pim.streamingapp.model.LoginResponse;
 import com.pim.streamingapp.model.UsuarioDTO;
@@ -67,11 +69,15 @@ public class LoginActivity extends AppCompatActivity {
 
                     // Agora buscar o ID do usuário pelo e-mail
                     ApiService apiInterna = RetrofitClient.getApiService(LoginActivity.this);
+                    Log.d("DEBUG_PERFIL", "Valor do admin LoginActivity: " + session.getUsuarioAdmin());
+                    session.salvarUsuarioAdmin(response.body().admin);
                     apiInterna.getUsuarioPorEmail(email).enqueue(new Callback<UsuarioDTO>() {
                         @Override
                         public void onResponse(Call<UsuarioDTO> call, Response<UsuarioDTO> response) {
+                            Log.d("DEBUG", "Resposta: " + new Gson().toJson(response.body()));
                             if (response.isSuccessful() && response.body() != null) {
                                 session.salvarUsuarioId(response.body().id);
+
 
 
                                 session.salvarUsuarioId(response.body().id);

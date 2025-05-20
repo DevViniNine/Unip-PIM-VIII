@@ -3,20 +3,27 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:fitsSystemWindows="true"
+    android:layout_above="@layout/barra_de_botoes">
 
     <TextView
         android:id="@+id/txtTituloCurtidos"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Conteúdos Curtidos"
+        android:textSize="22sp"
+        android:padding="25dp"
         android:textStyle="bold"
-        android:textSize="18sp"
-        android:paddingBottom="12dp"/>
+        android:gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCurtidos"
         android:contentDescription="lista de curtidas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/barra_de_botoes" />
+
 </LinearLayout>

@@ -2,8 +2,17 @@ package com.pim.streamingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.pim.streamingapp.model.UsuarioDTO;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PerfilActivity extends AppCompatActivity {
     private TextView txtNomeUsuario;
@@ -13,41 +22,52 @@ public class PerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        // Configurar barra inferior
+        Button btnAdmin = findViewById(R.id.btnAdmin);
+
         BottomBarUtil.configurarBotoesBarraInferior(this);
 
         txtNomeUsuario = findViewById(R.id.txtNomeUsuarioPerfil);
 
-        // Buscar nome do usuário logado
         SessionManager session = new SessionManager(this);
         String nomeUsuario = session.getUsuarioNome();
         txtNomeUsuario.setText(nomeUsuario != null ? nomeUsuario : "Nome não encontrado");
 
-        // Botão para editar dados pessoais
         Button btnEditar = findViewById(R.id.btnEditarPerfil);
         btnEditar.setOnClickListener(v -> {
-            // TODO: Abrir tela de editar nome/email/senha
             startActivity(new Intent(this, EditarPerfilActivity.class));
         });
 
-        // Botão para cadastro de criador
         Button btnCriador = findViewById(R.id.btnCadastroCriador);
         btnCriador.setOnClickListener(v -> {
-            // TODO: Abrir tela/cadastro de criador de conteúdo
             startActivity(new Intent(this, CadastroCriadorActivity.class));
         });
 
-        // Botão para o painel de administrador
-        ImageButton btnPerfil = AdminActivity.findViewById(R.id.btnPerfil);
-        if (btnPerfil != null) {
-            btnPerfil.setOnClickListener(v -> {
-                Intent intent = new Intent(AdminActivity, PerfilActivity.class);
-                AdminActivity.startActivity(intent);
-                AdminActivity.finish();
-            });
-        }
+        btnAdmin.setOnClickListener(v -> {
+            int usuarioId = session.getUsuarioId();
+            ApiService api = RetrofitClient.getApiService(this);
 
-        // Botão de logout (final da tela, em vermelho)
+            api.getUsuarioPorId(usuarioId).enqueue(new Callback<UsuarioDTO>() {
+                @Override
+                public void onResponse(Call<UsuarioDTO> call, Response<UsuarioDTO> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        UsuarioDTO usuario = response.body();
+                        if (usuario.admin == 1) {
+                            startActivity(new Intent(PerfilActivity.this, AdminActivity.class));
+                        } else {
+                            Toast.makeText(PerfilActivity.this, "Apenas administradores têm acesso!", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(PerfilActivity.this, "Erro ao buscar informações do usuário!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onFailure(Call<UsuarioDTO> call, Throwable t) {
+                    Toast.makeText(PerfilActivity.this, "Erro de conexão!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
+
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> {
             session.limparSessao();
