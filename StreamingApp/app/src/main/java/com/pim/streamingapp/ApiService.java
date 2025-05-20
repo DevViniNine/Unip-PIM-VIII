@@ -86,5 +86,8 @@ public interface ApiService {
     @GET("api/Visualizacao/ultimos")
     Call<RespostaVisualizacaoDTO> listarVisualizacoesRecentes();
 
+    @GET("/api/Curtida/curtidos")
+    Call<RespostaCurtidosDTO> listarCurtidos();
+
 }
 

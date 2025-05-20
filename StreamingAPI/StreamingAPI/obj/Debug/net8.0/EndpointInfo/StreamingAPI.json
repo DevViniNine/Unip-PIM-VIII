@@ -463,6 +463,18 @@
         }
       }
     },
+    "/api/Curtida/curtidos": {
+      "get": {
+        "tags": [
+          "Curtida"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/ItemPlaylist": {
       "post": {
         "tags": [

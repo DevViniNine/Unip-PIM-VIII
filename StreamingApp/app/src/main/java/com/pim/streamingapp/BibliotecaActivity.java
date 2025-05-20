@@ -44,7 +44,7 @@ public class BibliotecaActivity extends AppCompatActivity {
         });
 
         btnCurtidos.setOnClickListener(v -> {
-            // TODO: abrir curtidos
+            startActivity(new Intent(this, CurtidosActivity.class));
         });
 
         btnCriar.setOnClickListener(v -> {

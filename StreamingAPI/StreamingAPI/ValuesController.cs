@@ -36,7 +36,7 @@ namespace StreamingAPI
          */
 
         [HttpPost("cadastrar")]
-      //  [Authorize]
+        //  [Authorize]
         public async Task<ActionResult<UserToken>> Incluir(UsuarioDTO usuarioDTO)
         {
             if (usuarioDTO == null)
@@ -64,7 +64,7 @@ namespace StreamingAPI
         }
 
         [HttpGet("listar")]
-       // [Authorize]
+        // [Authorize]
         public async Task<ActionResult<IEnumerable<UsuarioDTO>>> GetUsuarios()
         {
             var usuarios = await _usuarioService.SelecionarTodosAsync();
@@ -402,7 +402,7 @@ namespace StreamingAPI
             }
         }
 
-        
+
     }
 
 
@@ -478,11 +478,13 @@ namespace StreamingAPI
     public class CurtidaController : ControllerBase
     {
         private readonly ICurtidaService _service;
+        private readonly StreamingAPIContext _context;
 
 
-        public CurtidaController(ICurtidaService service)
+        public CurtidaController(ICurtidaService service, StreamingAPIContext context)
         {
             _service = service;
+            _context = context;
         }
 
         [HttpPost("curtir/{conteudoId}")]
@@ -570,7 +572,37 @@ namespace StreamingAPI
                 usuarios = lista
             });
         }
-    }
+    
+
+    [HttpGet("curtidos")]
+        [Authorize]
+        public async Task<IActionResult> ListarCurtidosDoUsuario()
+        {
+            var userId = int.Parse(User.FindFirst("id").Value);
+            // Buscar as curtidas do usuário, incluindo o conteúdo
+            var curtidos = await _context.Curtidas
+                .Where(c => c.UsuarioId == userId)
+                .Include(c => c.Conteudo)
+                .OrderByDescending(c => c.Id) // Mais recente primeiro (opcional)
+                .ToListAsync();
+
+            var lista = curtidos.Select(c => new {
+                conteudoId = c.ConteudoId,
+                nome = c.Conteudo.Nome,
+                tipo = c.Conteudo.Tipo,
+                url = c.Conteudo.Url,
+                Criador = c.Conteudo.Criador != null ? c.Conteudo.Criador.Nome : "Desconhecido"
+            }).ToList();
+
+            return Ok(new
+            {
+                total = lista.Count,
+                conteudos = lista
+            });
+        }
+
+    } 
+}
 
 
 
@@ -719,7 +751,7 @@ namespace StreamingAPI
             return Ok(conteudos);
         }
     }
-    }
+    
 
 
 

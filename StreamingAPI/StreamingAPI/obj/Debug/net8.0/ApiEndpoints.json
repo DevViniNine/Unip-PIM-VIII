@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "StreamingAPI.ComentarioController",
+    "ContainingType": "ComentarioController",
     "Method": "Comentar",
     "RelativePath": "api/Comentario/comentar/{conteudoId}",
     "HttpMethod": "POST",
@@ -21,7 +21,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "StreamingAPI.ComentarioController",
+    "ContainingType": "ComentarioController",
     "Method": "Listar",
     "RelativePath": "api/Comentario/listar/{conteudoId}",
     "HttpMethod": "GET",
@@ -156,6 +156,16 @@
     "ContainingType": "StreamingAPI.CriadorController",
     "Method": "ListarCriadores",
     "RelativePath": "api/Criador/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StreamingAPI.CurtidaController",
+    "Method": "ListarCurtidosDoUsuario",
+    "RelativePath": "api/Curtida/curtidos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -502,7 +512,7 @@
     ]
   },
   {
-    "ContainingType": "StreamingAPI.VisualizacaoController",
+    "ContainingType": "VisualizacaoController",
     "Method": "ListarMaisVisualizados",
     "RelativePath": "api/Visualizacao/populares",
     "HttpMethod": "GET",
@@ -512,7 +522,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "StreamingAPI.VisualizacaoController",
+    "ContainingType": "VisualizacaoController",
     "Method": "Registrar",
     "RelativePath": "api/Visualizacao/registrar/{conteudoId}",
     "HttpMethod": "POST",
@@ -528,7 +538,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "StreamingAPI.VisualizacaoController",
+    "ContainingType": "VisualizacaoController",
     "Method": "GetTotal",
     "RelativePath": "api/Visualizacao/total/{conteudoId}",
     "HttpMethod": "GET",
@@ -544,7 +554,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "StreamingAPI.VisualizacaoController",
+    "ContainingType": "VisualizacaoController",
     "Method": "ListarDoUsuario",
     "RelativePath": "api/Visualizacao/ultimos",
     "HttpMethod": "GET",
