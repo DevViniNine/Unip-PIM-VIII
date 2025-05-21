@@ -43,11 +43,17 @@ public class CriarConteudoActivity extends AppCompatActivity {
                 return;
             }
 
+            // Validação extra para o nome do criador
+            if (nomeCriador.equalsIgnoreCase("Desconhecido") || nomeCriador.length() < 3) {
+                Toast.makeText(this, "Nome do criador inválido. Insira um nome cadastrado ou cadastre um novo criador.", Toast.LENGTH_LONG).show();
+                return;
+            }
+
             Conteudo conteudo = new Conteudo();
             conteudo.nome = nome;
             conteudo.tipo = tipo;
             conteudo.url = url;
-            conteudo.nomeCriador = nomeCriador; // ajuste se o seu model precisar
+            conteudo.nomeCriador = nomeCriador;
 
             ApiService api = RetrofitClient.getApiService(this);
             api.cadastrarConteudo(conteudo).enqueue(new Callback<Void>() {
@@ -67,5 +73,6 @@ public class CriarConteudoActivity extends AppCompatActivity {
                 }
             });
         });
+
     }
 }
