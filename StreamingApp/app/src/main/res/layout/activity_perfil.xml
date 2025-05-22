@@ -29,17 +29,17 @@
         />
 
     <!-- Botão para editar dados -->
+
+    <!-- Botão para cadastro de criador de conteúdo -->
     <Button
         android:id="@+id/btnEditarPerfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:text="Alterar Dados Pessoais"
-        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:layout_marginBottom="16dp"
         android:padding="10dp"
-        android:layout_marginBottom="16dp"/>
+        android:text="Alterar Dados Pessoais" />
 
-    <!-- Botão para cadastro de criador de conteúdo -->
     <Button
         android:id="@+id/btnCadastroCriador"
         android:layout_width="match_parent"
@@ -54,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:drawableLeft="@android:drawable/btn_star_big_off"
         android:text="Painel do Administrador"
         android:layout_marginBottom="16dp"/>
 

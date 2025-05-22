@@ -5,16 +5,16 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
+
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="50dp"
         android:text="Administração"
         android:textSize="22sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="25dp"/>
-
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnGerenciarUsuarios"
@@ -22,12 +22,13 @@
         android:layout_margin="15dp"
         android:layout_height="wrap_content"
         android:text="Gerenciar Usuários"/>
+
     <Button
         android:id="@+id/btnListarUsuarios"
         android:layout_width="match_parent"
-        android:layout_margin="15dp"
         android:layout_height="wrap_content"
-        android:text="Listar Usuarios"/>
+        android:layout_margin="15dp"
+        android:text="Listar Usuarios" />
 
     <Button
         android:id="@+id/btnListarCoteudos"
@@ -52,12 +53,12 @@
         android:text="Gerenciar Conteúdos"
         android:layout_marginTop="10dp"/>
 
+
     <View
         android:layout_width="match_parent"
         android:layout_margin="15dp"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
 
     <include layout="@layout/barra_de_botoes" />
 

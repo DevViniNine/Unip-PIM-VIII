@@ -18,6 +18,7 @@ public class CriarConteudoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_conteudo);
+        BottomBarUtil.configurarBotoesBarraInferior(this);
 
         edtNome = findViewById(R.id.edtNomeConteudo);
         edtTipo = findViewById(R.id.edtTipoConteudo);
@@ -25,7 +26,6 @@ public class CriarConteudoActivity extends AppCompatActivity {
         edtNomeCriador = findViewById(R.id.edtNomeCriador);
         btnCadastrar = findViewById(R.id.btnCadastrarConteudo);
 
-        // Preencher nome do criador automaticamente se quiser:
         SessionManager session = new SessionManager(this);
         String nomeUsuario = session.getUsuarioNome();
         if (nomeUsuario != null) {
@@ -43,7 +43,7 @@ public class CriarConteudoActivity extends AppCompatActivity {
                 return;
             }
 
-            // Validação extra para o nome do criador
+
             if (nomeCriador.equalsIgnoreCase("Desconhecido") || nomeCriador.length() < 3) {
                 Toast.makeText(this, "Nome do criador inválido. Insira um nome cadastrado ou cadastre um novo criador.", Toast.LENGTH_LONG).show();
                 return;
@@ -72,6 +72,11 @@ public class CriarConteudoActivity extends AppCompatActivity {
                     Toast.makeText(CriarConteudoActivity.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+        });
+
+        Button btnUpload = findViewById(R.id.btnUpload);
+        btnUpload.setOnClickListener(v -> {
+            Toast.makeText(this, "Função a ser implementada futuramente.", Toast.LENGTH_SHORT).show();
         });
 
     }

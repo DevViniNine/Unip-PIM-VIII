@@ -1,48 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
 
-    <EditText
-        android:id="@+id/edtNomeConteudo"
+
+    <TextView
+        android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome do conteúdo"
-        android:layout_marginBottom="12dp" />
+        android:gravity="center"
+        android:padding="25dp"
+        android:text="Criar Conteudo"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edtTipoConteudo"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tipo (Vídeo, Imagem, etc.)"
-        android:layout_marginBottom="12dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="25dp"
+        android:fillViewport="true">
 
-    <EditText
-        android:id="@+id/edtUrlConteudo"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edtNomeConteudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome do conteúdo"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edtTipoConteudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tipo (Vídeo, Imagem, etc.)"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edtUrlConteudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="URL do conteúdo"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/edtNomeCriador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome do criador"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btnCadastrarConteudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/btnUpload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upload" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/barra_de_botoes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="URL do conteúdo"
-        android:layout_marginBottom="12dp" />
-
-    <EditText
-        android:id="@+id/edtNomeCriador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nome do criador"
-        android:layout_marginBottom="24dp" />
-
-    <Button
-        android:id="@+id/btnCadastrarConteudo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar" />
-
-    <Button
-        android:id="@+id/btnUpload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Upload" />
-
-
+        android:layout_height="wrap_content" />
 </LinearLayout>

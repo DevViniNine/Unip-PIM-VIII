@@ -24,6 +24,8 @@ public class ConteudoPlaylistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_conteudo_playlist);
         BottomBarUtil.configurarBotoesBarraInferior(this);
 
+
+
         playlistId = getIntent().getIntExtra("playlistId", -1);
         String nomePlaylist = getIntent().getStringExtra("playlistNome");
 
@@ -41,6 +43,8 @@ public class ConteudoPlaylistActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
 
     private void carregarConteudosDaPlaylist() {
         ApiService api = RetrofitClient.getApiService(this);

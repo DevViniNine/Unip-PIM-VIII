@@ -635,8 +635,9 @@ namespace StreamingAPI
         public async Task<IActionResult> Comentar(int conteudoId, [FromBody] ComentarioDTO dto)
         {
             var userId = int.Parse(User.FindFirst("id").Value);
+        Console.WriteLine($"DEBUG - userId JWT: {userId} - dto.UsuarioId: {dto.UsuarioId} - conteudoId: {conteudoId}");
 
-            try
+        try
             {
                 await _service.ComentarAsync(userId, conteudoId, dto.Texto);
                 return Ok(new

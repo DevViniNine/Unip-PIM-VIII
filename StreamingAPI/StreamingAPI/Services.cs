@@ -35,17 +35,23 @@ namespace Services
             if (usuarioExistente == null)
                 throw new Exception("Usuário não encontrado");
 
-
             usuarioExistente.AlterarNome(dto.Nome);
             usuarioExistente.AlterarEmail(dto.Email);
 
+            // Atualiza o admin
+            usuarioExistente.Admin = dto.Admin;
 
+            // Só muda a senha se vier preenchida
             if (!string.IsNullOrEmpty(dto.Password))
             {
+                if (dto.Password.Length < 8)
+                    throw new Exception("A senha deve ter no mínimo 8 caracteres.");
+
                 using var hmac = new HMACSHA512();
                 usuarioExistente.PasswordSalt = hmac.Key;
                 usuarioExistente.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Password));
             }
+            // Se não veio senha, NÃO altera hash/salt
 
             var usuarioAlterado = await _repository.Alterar(usuarioExistente);
             return _mapper.Map<UsuarioDTO>(usuarioAlterado);

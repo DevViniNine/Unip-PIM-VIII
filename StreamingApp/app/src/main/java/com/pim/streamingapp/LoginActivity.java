@@ -77,15 +77,11 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d("DEBUG", "Resposta: " + new Gson().toJson(response.body()));
                             if (response.isSuccessful() && response.body() != null) {
                                 session.salvarUsuarioId(response.body().id);
-
-
-
-                                session.salvarUsuarioId(response.body().id);
                                 session.salvarUsuarioNome(response.body().nome);
+                                session.salvarUsuarioEmail(response.body().email); // <-- Salva o e-mail
                                 Toast.makeText(LoginActivity.this,
                                         "Bem-vindo ao projeto de DevViniNine",
                                         Toast.LENGTH_LONG).show();
-
 
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
@@ -97,7 +93,6 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<UsuarioDTO> call, Throwable t) {
                             Toast.makeText(LoginActivity.this, "Erro ao buscar usuário: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-
                         }
 
                     });
@@ -114,8 +109,3 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 }
-
-
-
-
-

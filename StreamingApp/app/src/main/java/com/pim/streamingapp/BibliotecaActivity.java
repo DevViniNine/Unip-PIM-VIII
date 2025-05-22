@@ -28,7 +28,7 @@ public class BibliotecaActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // CORRETO:
+
         btnVisualizados.setOnClickListener(v -> {
             Intent intent = new Intent(BibliotecaActivity.this, VisualizacoesRecentesActivity.class);
             startActivity(intent);
