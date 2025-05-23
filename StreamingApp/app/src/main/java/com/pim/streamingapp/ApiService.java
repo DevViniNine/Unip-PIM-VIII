@@ -95,5 +95,23 @@ public interface ApiService {
     @POST("api/Conteudo/cadastrar")
     Call<Void> cadastrarConteudo(@Body Conteudo conteudo);
 
+    @PUT("api/Usuario/alterar/{id}")
+    Call<Void> alterarUsuario(@Path("id") int id, @Body UsuarioDTO usuario);
+
+    @POST("api/Criador/cadastrar")
+    Call<Void> cadastrarCriador(@Body CriadorDTO criador);
+
+    @GET("api/Criador/listar")
+    Call<List<CriadorDTO>> listarCriadores();
+
+
+    @GET("api/Usuario/listar")
+    Call<List<UsuarioDTO>> listarUsuarios();
+
+
+    @DELETE("api/Usuario/deletar/{id}")
+    Call<Void> deletarUsuario(@Path("id") int id, @Body UsuarioDTO dto);
+
+
 }
 

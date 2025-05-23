@@ -37,17 +37,7 @@ public class MinhasPlaylistsActivity extends AppCompatActivity {
 
 
         ImageButton btnInicio = findViewById(R.id.btnInicio);
-        btnInicio.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-            finish();
-        });
-        ImageButton btnBiblioteca = findViewById(R.id.btnBiblioteca);
-        btnBiblioteca.setOnClickListener(v -> {
-            Intent intent = new Intent(this, BibliotecaActivity.class);
-            startActivity(intent);
-        });
+        BottomBarUtil.configurarBotoesBarraInferior(this);
 
         btnNovaPlaylist.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);

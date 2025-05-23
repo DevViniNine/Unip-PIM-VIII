@@ -16,6 +16,12 @@
         android:theme="@style/Theme.StreamingApp"
         tools:targetApi="31">
         <activity
+            android:name=".EditarUsuarioAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GerenciarUsuariosActivity"
+            android:exported="false" />
+        <activity
             android:name=".CriarConteudoActivity"
             android:exported="false" />
         <activity

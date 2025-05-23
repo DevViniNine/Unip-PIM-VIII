@@ -1257,8 +1257,7 @@
       "UsuarioDTO": {
         "required": [
           "email",
-          "nome",
-          "password"
+          "nome"
         ],
         "type": "object",
         "properties": {
@@ -1277,9 +1276,8 @@
             "type": "string"
           },
           "password": {
-            "maxLength": 100,
-            "minLength": 8,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "admin": {
             "type": "integer",

@@ -9,6 +9,7 @@ public class SessionManager {
     private static final String KEY_TOKEN = "jwt_token";
     private static final String KEY_USER_ID = "usuario_id";
     private static final String KEY_USER_NAME = "usuario_nome";
+    private static final String KEY_USER_EMAIL = "usuario_email"; // NOVO
 
     private final SharedPreferences prefs;
     private final SharedPreferences.Editor editor;
@@ -45,10 +46,6 @@ public class SessionManager {
         return prefs.getInt(KEY_USER_ID, -1);
     }
 
-    public void limparSessao() {
-        editor.clear();
-        editor.apply();
-    }
     public void salvarUsuarioNome(String nome) {
         editor.putString(KEY_USER_NAME, nome);
         editor.apply();
@@ -56,5 +53,19 @@ public class SessionManager {
 
     public String getUsuarioNome() {
         return prefs.getString(KEY_USER_NAME, null);
+    }
+
+    // NOVO: salvar e obter email
+    public void salvarUsuarioEmail(String email) {
+        editor.putString(KEY_USER_EMAIL, email);
+        editor.apply();
+    }
+    public String getUsuarioEmail() {
+        return prefs.getString(KEY_USER_EMAIL, "");
+    }
+
+    public void limparSessao() {
+        editor.clear();
+        editor.apply();
     }
 }

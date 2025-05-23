@@ -17,6 +17,7 @@ import androidx.media3.common.MediaItem;
 import androidx.media3.exoplayer.SimpleExoPlayer;
 import androidx.media3.ui.PlayerView;
 
+import com.google.gson.Gson;
 import com.pim.streamingapp.model.ComentarioDTO;
 import com.pim.streamingapp.model.CurtidaDTO;
 import com.pim.streamingapp.model.ItemPlaylistDTO;
@@ -152,6 +153,8 @@ public class ExibirConteudoActivity extends AppCompatActivity {
             String texto = edtComentario.getText().toString().trim();
             if (texto.isEmpty()) {
                 Toast.makeText(this, "Digite um comentário", Toast.LENGTH_SHORT).show();
+                Log.d("DEBUG_COMENTARIO", "conteudoId=" + conteudoId);
+
                 return;
             }
 
@@ -160,6 +163,8 @@ public class ExibirConteudoActivity extends AppCompatActivity {
             comentario.conteudoId = conteudoId;
             comentario.usuarioNome = session.getUsuarioNome();
             comentario.texto = texto;
+
+            Log.d("DEBUG_COMENTARIO_JSON", new Gson().toJson(comentario));
 
             api.comentar(conteudoId, comentario).enqueue(new Callback<Void>() {
                 @Override

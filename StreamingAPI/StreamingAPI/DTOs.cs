@@ -7,21 +7,21 @@ namespace StreamingAPI
     {
         public class UsuarioDTO
         {
-            public int Id { get;  set; }
+            public int Id { get; set; }
 
             [Required(ErrorMessage = "O Nome é obrigatorio.")]
             [MaxLength(100, ErrorMessage = "O Nome dever ter, no máximo 100 caracteres.")]
             public string Nome { get; set; }
 
-
             [Required(ErrorMessage = "O Email é obrigatorio.")]
             [MaxLength(100, ErrorMessage = "O Email dever ter, no máximo 100 caracteres.")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "A senha é obrigatorio.")]
-            [MaxLength(100, ErrorMessage = "A Senha dever ter, no máximo 100 caracteres.")]
-            [MinLength(8, ErrorMessage = "A Senha dever ter, no mínimo, 8 caracteres.")]
+            // Remover o [Required] para permitir vir nulo na atualização!
+           // [MaxLength(100, ErrorMessage = "A Senha dever ter, no máximo 100 caracteres.")]
+            //[MinLength(8, ErrorMessage = "A Senha dever ter, no mínimo, 8 caracteres.")]
             [NotMapped]
+            
             public string Password { get; set; }
 
             [NotMapped]
