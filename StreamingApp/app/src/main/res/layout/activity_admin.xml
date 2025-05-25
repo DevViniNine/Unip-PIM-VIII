@@ -21,37 +21,8 @@
         android:layout_width="match_parent"
         android:layout_margin="15dp"
         android:layout_height="wrap_content"
+        android:padding="50dp"
         android:text="Gerenciar Usuários"/>
-
-    <Button
-        android:id="@+id/btnListarUsuarios"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Listar Usuarios" />
-
-    <Button
-        android:id="@+id/btnListarCoteudos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Listar Coteudos"
-        android:layout_marginTop="10dp"/>
-    <Button
-        android:id="@+id/btnListarCriadores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Listar Criadores"
-        android:layout_marginTop="10dp"/>
-
-    <Button
-        android:id="@+id/btnGerenciarConteudos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Gerenciar Conteúdos"
-        android:layout_marginTop="10dp"/>
 
 
     <View

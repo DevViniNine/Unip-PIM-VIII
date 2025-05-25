@@ -92,5 +92,13 @@ namespace StreamingAPI
             public string TipoConteudo { get; set; }
             public DateTime DataVisualizacao { get; set; }
         }
+
+        public class ConteudoUploadDTO
+        {
+            public string Nome { get; set; }
+            public string Tipo { get; set; } // Ex: "imagem", "musica", "video"
+            public IFormFile Arquivo { get; set; }
+        }
+
     }
 }

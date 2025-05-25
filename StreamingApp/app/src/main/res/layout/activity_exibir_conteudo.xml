@@ -101,19 +101,20 @@
 
                 <Button
                     android:id="@+id/btnPlaylist"
-                    android:layout_width="100dp"
+                    android:layout_width="95dp"
+
                     android:layout_height="55dp"
                     android:layout_marginHorizontal="5dp"
-                    android:text="Add Playlist" />
+                    android:text="+ Add Playlist" />
 
                 <Button
                     android:id="@+id/btnDownload"
-                    android:layout_width="100dp"
+                    android:layout_width="95dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:minHeight="55dp"
-                    android:text="Download" />
+                    android:text="Baixar" />
             </LinearLayout>
 
             <LinearLayout

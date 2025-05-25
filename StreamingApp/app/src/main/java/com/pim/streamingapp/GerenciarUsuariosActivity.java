@@ -89,24 +89,11 @@ public class GerenciarUsuariosActivity extends AppCompatActivity {
     }
 
     private void deletarUsuario(UsuarioDTO usuario) {
-        ApiService api = RetrofitClient.getApiService(this);
-        api.deletarUsuario(usuario.id, usuario).enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(GerenciarUsuariosActivity.this, "Usuário deletado com sucesso!", Toast.LENGTH_SHORT).show();
-                    carregarUsuarios();
-                } else {
-                    Toast.makeText(GerenciarUsuariosActivity.this,
-                            "Usuário com ligação com o banco, não é possível deletar.",
-                            Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(GerenciarUsuariosActivity.this, "Erro de conexão!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        Toast.makeText(
+                GerenciarUsuariosActivity.this,
+                "No momento não é possível deletar usuário vinculado ao banco de dados.",
+                Toast.LENGTH_LONG
+        ).show();
     }
 }
+

@@ -161,6 +161,44 @@
         }
       }
     },
+    "/api/Conteudo/upload": {
+      "post": {
+        "tags": [
+          "Conteudo"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "arquivo",
+                  "nome",
+                  "tipo"
+                ],
+                "type": "object",
+                "properties": {
+                  "arquivo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "nome": {
+                    "type": "string"
+                  },
+                  "tipo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Conteudo/alterar/{id}": {
       "put": {
         "tags": [

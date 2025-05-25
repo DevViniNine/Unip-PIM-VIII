@@ -12,6 +12,7 @@ using System.Text.Json.Serialization;
 using static Services.UsuarioService.ItemPlaylistService;
 using Services;
 using static Services.UsuarioService;
+using Microsoft.Extensions.FileProviders;
 
 
 
@@ -84,6 +85,7 @@ builder.Services.AddSwaggerGen(c =>
 
 
 
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "Insira o token JWT no formato: Bearer {seu token}",
@@ -92,6 +94,8 @@ builder.Services.AddSwaggerGen(c =>
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
+    c.OperationFilter<SwaggerFileOperationFilter>();
+
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
@@ -109,11 +113,15 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+
+
 //AUTO MAPPER
 builder.Services.AddSingleton(provider => new MapperConfiguration(cfg =>
 {
     cfg.AddProfile<EntitiesToDTOMappingProfile>();
 }).CreateMapper());
+
+
 
 
 // REGISTRO DE REPOSITÓRIOS
@@ -134,6 +142,12 @@ builder.Services.AddScoped<ItemPlaylistService>();
 builder.Services.AddScoped<IItemPlaylistService, ItemPlaylistService>();
 
 
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(5127); // ou qualquer porta que você desejar
+});
+
+
 
 // Depois o serviço
 
@@ -147,6 +161,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Uploads")),
+    RequestPath = "/uploads"
+});
+
 
 app.UseHttpsRedirection();
 

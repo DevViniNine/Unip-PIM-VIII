@@ -13,6 +13,7 @@ using static StreamingAPI.Repository;
 using static StreamingAPI.IItemPlaylistService;
 
 using static Services.UsuarioService.ItemPlaylistService;
+using System.Linq;
 
 namespace StreamingAPI
 {
@@ -231,6 +232,83 @@ namespace StreamingAPI
 
             return Ok(conteudos);
         }
+
+        [Authorize]
+        [HttpPost("upload")]
+        [RequestSizeLimit(100_000_000)] // 100 MB
+        public async Task<IActionResult> UploadConteudo([FromForm] DTOs.ConteudoUploadDTO dto)
+        {
+            // 🔒 1. Verificar se o tipo é permitido
+            var tiposPermitidos = new[] { "Video", "Musica", "Podcast", "Imagem" };
+            if (!tiposPermitidos.Contains(dto.Tipo, StringComparer.OrdinalIgnoreCase))
+                return BadRequest("Tipo de conteúdo inválido. Permitidos: Video, Musica, Podcast, Imagem.");
+
+            // 🔐 2. Verificar extensão de arquivo
+            var extensoesPermitidas = new[] { ".mp4", ".mp3", ".jpeg", ".jpg", ".png" };
+            var extensao = Path.GetExtension(dto.Arquivo.FileName).ToLower();
+            if (!extensoesPermitidas.Contains(extensao))
+                return BadRequest("Formato de arquivo inválido. Permitidos: mp4, mp3, jpeg, jpg, png.");
+
+            // 🔎 3. Obter nome do usuário logado via JWT
+            //var emailUsuario = User.FindFirst("email")?.Value;
+
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                return Unauthorized("Token inválido ou ID do usuário não encontrado.");
+
+            var usuario = await _context.Usuario.FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (usuario == null)
+                return Unauthorized("Usuário não encontrado.");
+
+
+
+            foreach (var claim in User.Claims)
+            {
+                Console.WriteLine($"Claim: {claim.Type} = {claim.Value}");
+            }
+
+            // 🔁 4. Verificar se nome do usuário é igual ao de algum criador
+            var criador = await _context.Criadores.FirstOrDefaultAsync(c => c.Nome == usuario.Nome);
+            if (criador == null)
+                return BadRequest("Este usuário não está cadastrado como criador de conteúdo.");
+
+            // 📁 5. Salvar o arquivo
+            var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
+            var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", dto.Tipo.ToLower());
+            Directory.CreateDirectory(caminhoPasta); // cria a pasta se não existir
+
+            var caminhoCompleto = Path.Combine(caminhoPasta, nomeArquivo);
+            using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+            {
+                await dto.Arquivo.CopyToAsync(stream);
+            }
+
+            var servidorIP = "192.168.1.11"; // <-- IP DO COMPUTADOR LOCAL
+            var porta = "5127";
+            var url = $"http://{servidorIP}:{porta}/uploads/{dto.Tipo.ToLower()}/{nomeArquivo}";
+
+
+            // 🧾 6. Criar o conteúdo no banco
+            var conteudo = new Conteudo
+            {
+                Nome = dto.Nome,
+                Tipo = dto.Tipo,
+                Url = url,
+                CriadorID = criador.Id
+            };
+
+            _context.Conteudos.Add(conteudo);
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                mensagem = "Upload realizado com sucesso!",
+                conteudo
+            });
+        }
+
+
 
         [HttpPut("alterar/{id}")]
         [Authorize]

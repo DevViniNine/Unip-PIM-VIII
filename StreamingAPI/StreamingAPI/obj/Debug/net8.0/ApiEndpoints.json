@@ -100,6 +100,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "StreamingAPI.ConteudoController",
+    "Method": "UploadConteudo",
+    "RelativePath": "api/Conteudo/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Nome",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tipo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Arquivo",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "StreamingAPI.CriadorController",
     "Method": "AlterarCriador",
     "RelativePath": "api/Criador/alterar/{id}",

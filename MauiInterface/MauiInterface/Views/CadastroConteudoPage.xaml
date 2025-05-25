@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiInterface.Views.CadastroConteudoPage"
+    Title="Novo Conteúdo">
+    
+    
+    <ScrollView>
+            <StackLayout Padding="20" Spacing="16">
+                <Label Text="Cadastrar novo conteúdo" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Entry x:Name="entryNome" Placeholder="Nome do conteúdo" />
+                <Entry x:Name="entryTipo" Placeholder="Tipo (Vídeo, Imagem, Música, Podcast)" />
+                <Entry x:Name="entryUrl" Placeholder="URL do conteúdo" />
+                <Entry x:Name="entryNomeCriador" Placeholder="Seu nome de criador" />
+
+                <Button Text="Cadastrar" Clicked="BtnCadastrar_Clicked" BackgroundColor="#007AFF" TextColor="White" CornerRadius="10"/>
+                <Button Text="Cancelar" Clicked="BtnCancelar_Clicked" BackgroundColor="#DDD" TextColor="Black" CornerRadius="10"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>

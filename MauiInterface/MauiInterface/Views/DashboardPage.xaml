@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiInterface.Views.DashboardPage"
+    Title="Painel do Criador">
+
+    <StackLayout Padding="20" Spacing="18">
+
+        <Label x:Name="lblBemVindo"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="Black"
+               HorizontalOptions="Center" />
+
+        <Button Text="Adicionar Novo Conteúdo"
+                Clicked="BtnAdicionarConteudo_Clicked"
+                BackgroundColor="#007AFF"
+                TextColor="White"
+                CornerRadius="10"
+                Margin="0,10" />
+
+        <Label Text="Seus Conteúdos:" FontSize="18" FontAttributes="Bold"/>
+
+        <CollectionView x:Name="conteudosCollection" HeightRequest="250">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#DDD" Margin="0,5" Padding="10">
+                        <StackLayout>
+                            <Label Text="{Binding Nome}" FontSize="16" FontAttributes="Bold"/>
+                            <Label Text="{Binding Tipo}" FontSize="14" />
+                            <Label Text="{Binding Url}" FontSize="12" TextColor="#666"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Sair" 
+                Clicked="BtnSair_Clicked"
+                BackgroundColor="Red"
+                TextColor="White"
+                CornerRadius="10"
+                Margin="0,20" />
+
+    </StackLayout>
+</ContentPage>
