@@ -14,7 +14,7 @@ using StreamingAPI;
 namespace Services
 {
 
-    //SERVICES DO USUARIO
+ 
     public class UsuarioService : IUsuarioService
     {
         public readonly IUsuarioRepository _repository;
@@ -38,10 +38,10 @@ namespace Services
             usuarioExistente.AlterarNome(dto.Nome);
             usuarioExistente.AlterarEmail(dto.Email);
 
-            // Atualiza o admin
+            
             usuarioExistente.Admin = dto.Admin;
 
-            // Só muda a senha se vier preenchida
+            
             if (!string.IsNullOrEmpty(dto.Password))
             {
                 if (dto.Password.Length < 8)
@@ -51,7 +51,7 @@ namespace Services
                 usuarioExistente.PasswordSalt = hmac.Key;
                 usuarioExistente.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dto.Password));
             }
-            // Se não veio senha, NÃO altera hash/salt
+           
 
             var usuarioAlterado = await _repository.Alterar(usuarioExistente);
             return _mapper.Map<UsuarioDTO>(usuarioAlterado);
@@ -118,7 +118,7 @@ namespace Services
                 Nome = usuario.Nome,
                 Email = usuario.Email,
                 Admin = usuario.Admin
-                // Adicione outros campos se necessário
+               
             };
 
 
@@ -154,7 +154,7 @@ namespace Services
                 return true;
             }
 
-            //SERVIÇO DE AUTENTICAÇÃO
+     
             public string GenerateToken(int id, string email)
             {
                 var claims = new[]
@@ -196,7 +196,7 @@ namespace Services
             }
 
         }
-        //SERVIÇO DE AUTENTICAÇÃO
+        
         public class AuthService
         {
             public void CreatePasswordHash(string password, out byte[] hash, out byte[] salt)
@@ -324,7 +324,7 @@ namespace Services
 
             public class CurtidaService : ICurtidaService
             {
-                //private readonly StreamingAPIContext _context;
+                
                 private readonly ICurtidaRepository _repository;
                 private readonly IMapper _mapper;
 
@@ -454,15 +454,15 @@ namespace Services
 
                 public async Task<IEnumerable<VisualizacaoDTO>> ListarPorUsuarioAsync(int usuarioId)
                 {
-                    // Certifique-se de que seu repo faz Include(v => v.Conteudo)
+                    
                     var lista = await _repo.ListarPorUsuarioAsync(usuarioId);
 
                     return lista.Select(v => new VisualizacaoDTO
                     {
                         UsuarioId = v.UsuarioId,
                         ConteudoId = v.ConteudoId,
-                        NomeConteudo = v.Conteudo?.Nome,    // <-- Aqui pega nome
-                        TipoConteudo = v.Conteudo?.Tipo,    // <-- Aqui pega tipo
+                        NomeConteudo = v.Conteudo?.Nome,   
+                        TipoConteudo = v.Conteudo?.Tipo,   
                         DataVisualizacao = v.DataVisualizacao
                     });
                 }

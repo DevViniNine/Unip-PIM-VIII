@@ -16,16 +16,12 @@ namespace StreamingAPI
             {
                 _context = context;
             }
-
-
-            // ALTERAR USUARIO
             public async Task<Usuario> Alterar(Usuario usuario)
             {
                 _context.Usuario.Update(usuario);
                 await _context.SaveChangesAsync();
                 return usuario;
             }
-
             public async Task<Usuario> Excluir(int id)
             {
                 var usuario = await _context.Usuario.FindAsync(id);
@@ -38,8 +34,6 @@ namespace StreamingAPI
 
                 return null;
             }
-
-
             public async Task<Usuario> Incluir(Usuario usuario)
             {
                 _context.Usuario.Add(usuario);
@@ -52,8 +46,6 @@ namespace StreamingAPI
                 return await _context.Usuario.FindAsync(id);
 
             }
-
-
             public async Task<IEnumerable<Usuario>> SelecionarTodosAsync()
             {
                 return await _context.Usuario.ToListAsync();
@@ -70,7 +62,6 @@ namespace StreamingAPI
             }
 
         }
-
         public class PlaylistRepository : IPlaylistRepository
         {
             private readonly StreamingAPIContext _context;
@@ -79,7 +70,6 @@ namespace StreamingAPI
             {
                 _context = context;
             }
-
             public async Task<Playlist> IncluirAsync(Playlist playlist)
             {
                 _context.Playlists.Add(playlist);
@@ -93,7 +83,6 @@ namespace StreamingAPI
                     .ToListAsync();
             }
         }
-
         public class ItemPlaylistRepository : IItemPlaylistRepository
         {
             private readonly StreamingAPIContext _context;
@@ -102,25 +91,21 @@ namespace StreamingAPI
             {
                 _context = context;
             }
-
             public async Task AdicionarAsync(ItemPlaylist entidade)
             {
                 _context.ItemPlaylist.Add(entidade);
                 await _context.SaveChangesAsync();
             }
-
             public async Task<IEnumerable<ItemPlaylist>> ListarTodosAsync()
             {
                 return await _context.ItemPlaylist.ToListAsync();
             }
-
             public async Task<bool> ExisteAsync(int playlistId, int conteudoId)
             {
                 return await _context.ItemPlaylist
                     .AnyAsync(ip => ip.PlaylistID == playlistId && ip.ConteudoID == conteudoId);
             }
         }
-
         public class CurtidaRepository : ICurtidaRepository
         {
             private readonly StreamingAPIContext _context;

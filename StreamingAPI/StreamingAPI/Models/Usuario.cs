@@ -17,7 +17,7 @@ public class Usuario
     public byte[] PasswordHash { get; set; }
     public byte[] PasswordSalt { get; set; }
     public int Admin { get; set; } // 0 = usuário comum, 1 = admin
-    public List<Playlist> Playlists { get; set; } // Relação 1:N
+    public List<Playlist> Playlists { get; set; } 
 
     public Usuario(/*int id, */string nome, string email)
     {
@@ -31,7 +31,7 @@ public class Usuario
         PasswordSalt = passwordSalt;
     }
 
-    //TOKEN DE USUARIO
+ 
     public class UserToken
     {
         public string Token { get; set; }

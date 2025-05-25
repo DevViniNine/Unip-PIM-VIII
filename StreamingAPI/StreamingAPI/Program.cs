@@ -15,28 +15,17 @@ using static Services.UsuarioService;
 using Microsoft.Extensions.FileProviders;
 
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
-
-//CONEXÃO COM O BANCO
 builder.Services.AddDbContext<StreamingAPIContext>(options =>
 
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-
-
-//AUTENTICAÇÃO JWT
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -71,8 +60,6 @@ builder.Services.AddScoped<IVisualizacaoService, VisualizacaoService>();
 builder.Services.AddScoped<ICurtidaRepository, CurtidaRepository>();
 builder.Services.AddScoped<ICurtidaService, CurtidaService>();
 
-
-//SWAGGER GEN, PARA INTERFACE DO SWAGGER
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -82,9 +69,6 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API para gerenciamento de streaming"
     });
     c.UseAllOfToExtendReferenceSchemas();
-
-
-
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -113,49 +97,29 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
-
-//AUTO MAPPER
 builder.Services.AddSingleton(provider => new MapperConfiguration(cfg =>
 {
     cfg.AddProfile<EntitiesToDTOMappingProfile>();
 }).CreateMapper());
 
-
-
-
-// REGISTRO DE REPOSITÓRIOS
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPlaylistRepository, PlaylistRepository>();
 builder.Services.AddScoped<IPlaylistService, PlaylistService>();
 builder.Services.AddScoped<ItemPlaylistRepository>();
 builder.Services.AddScoped<IItemPlaylistRepository, ItemPlaylistRepository>();
 builder.Services.AddScoped<IItemPlaylistService, ItemPlaylistService>();
-
-
-
-// REGISTRO DE SERVIÇOS
-
 builder.Services.AddScoped<IAuthenticate, AuthenticateService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ItemPlaylistService>();
 builder.Services.AddScoped<IItemPlaylistService, ItemPlaylistService>();
 
-
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
-    serverOptions.ListenAnyIP(5127); // ou qualquer porta que você desejar
+    serverOptions.ListenAnyIP(5127); 
 });
 
-
-
-// Depois o serviço
-
-
-//APP BUILDER
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -169,12 +133,8 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/uploads"
 });
 
-
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

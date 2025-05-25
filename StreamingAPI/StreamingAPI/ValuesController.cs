@@ -23,10 +23,8 @@ namespace StreamingAPI
     {
         private readonly IAuthenticate _authenticateService;
         private readonly IUsuarioService _usuarioService;
-        // private readonly IMapper _mapper;
         public UsuarioController(IAuthenticate authenticateService, IUsuarioService usuarioService/*IMapper mapper*/)
         {
-            // _mapper = mapper;
             _authenticateService = authenticateService;
             _usuarioService = usuarioService;
         }
@@ -36,10 +34,11 @@ namespace StreamingAPI
   "email": "admin@admin.com",
   "password": "admin@2025",
   "admin": 1
+
          */
 
         [HttpPost("cadastrar")]
-        //  [Authorize]
+
         public async Task<ActionResult<UserToken>> Incluir(UsuarioDTO usuarioDTO)
         {
             if (usuarioDTO == null)
@@ -77,7 +76,6 @@ namespace StreamingAPI
         }
 
         [HttpGet("listar")]
-        // [Authorize]
         public async Task<ActionResult<IEnumerable<UsuarioDTO>>> GetUsuarios()
         {
             var usuarios = await _usuarioService.SelecionarTodosAsync();
@@ -85,7 +83,7 @@ namespace StreamingAPI
         }
 
         [HttpPut("alterar/{id}")]
-        // [Authorize]
+
         public async Task<ActionResult<UsuarioDTO>> Put(int id, [FromBody] UsuarioDTO usuarioDTO)
         {
             if (id != usuarioDTO.Id)
@@ -129,7 +127,6 @@ namespace StreamingAPI
         }
 
         [HttpGet("email/{email}")]
-        // [Authorize] // opcional, se quiser proteger
         public async Task<ActionResult<UsuarioDTO>> GetUsuarioPorEmail(string email)
         {
             var usuario = await _usuarioService.SelecionarPorEmailAsync(email);
@@ -140,7 +137,7 @@ namespace StreamingAPI
         }
 
         [HttpDelete("deletar/{id}")]
-        // [Authorize]
+
         public async Task<ActionResult<UsuarioDTO>> Delete(int id)
         {
             try
@@ -184,8 +181,8 @@ namespace StreamingAPI
             var conteudo = new Conteudo
             {
                 Nome = dto.Nome,
-                Tipo = dto.Tipo,
-                Url = dto.Url, // NOVO
+                Tipo = dto.Tipo, 
+                Url = dto.Url,
                 CriadorID = criador.Id
             };
 
@@ -235,22 +232,17 @@ namespace StreamingAPI
 
         [Authorize]
         [HttpPost("upload")]
-        [RequestSizeLimit(100_000_000)] // 100 MB
+        [RequestSizeLimit(100_000_000)]
         public async Task<IActionResult> UploadConteudo([FromForm] DTOs.ConteudoUploadDTO dto)
         {
-            // 🔒 1. Verificar se o tipo é permitido
             var tiposPermitidos = new[] { "Video", "Musica", "Podcast", "Imagem" };
             if (!tiposPermitidos.Contains(dto.Tipo, StringComparer.OrdinalIgnoreCase))
                 return BadRequest("Tipo de conteúdo inválido. Permitidos: Video, Musica, Podcast, Imagem.");
 
-            // 🔐 2. Verificar extensão de arquivo
             var extensoesPermitidas = new[] { ".mp4", ".mp3", ".jpeg", ".jpg", ".png" };
             var extensao = Path.GetExtension(dto.Arquivo.FileName).ToLower();
             if (!extensoesPermitidas.Contains(extensao))
                 return BadRequest("Formato de arquivo inválido. Permitidos: mp4, mp3, jpeg, jpg, png.");
-
-            // 🔎 3. Obter nome do usuário logado via JWT
-            //var emailUsuario = User.FindFirst("email")?.Value;
 
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "id")?.Value;
             if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
@@ -268,15 +260,14 @@ namespace StreamingAPI
                 Console.WriteLine($"Claim: {claim.Type} = {claim.Value}");
             }
 
-            // 🔁 4. Verificar se nome do usuário é igual ao de algum criador
             var criador = await _context.Criadores.FirstOrDefaultAsync(c => c.Nome == usuario.Nome);
             if (criador == null)
                 return BadRequest("Este usuário não está cadastrado como criador de conteúdo.");
 
-            // 📁 5. Salvar o arquivo
+
             var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
             var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", dto.Tipo.ToLower());
-            Directory.CreateDirectory(caminhoPasta); // cria a pasta se não existir
+            Directory.CreateDirectory(caminhoPasta);
 
             var caminhoCompleto = Path.Combine(caminhoPasta, nomeArquivo);
             using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
@@ -284,12 +275,19 @@ namespace StreamingAPI
                 await dto.Arquivo.CopyToAsync(stream);
             }
 
-            var servidorIP = "192.168.1.11"; // <-- IP DO COMPUTADOR LOCAL
+
+            // ABAIXO IP DO COMPUTADOR LOCAL ONDE O SCRIPT ALTERA (NECESSARIO PARA O UPLOAD DE ARQUIVOS)
+
+            var servidorIP = "192.168.1.11";
+
+            // ACIMA IP DO COMPUTADOR LOCAL IP DO COMPUTADOR LOCAL ONDE O SCRIPT ALTERA (NECESSARIO PARA O UPLOAD DE ARQUIVOS)
+
+
             var porta = "5127";
             var url = $"http://{servidorIP}:{porta}/uploads/{dto.Tipo.ToLower()}/{nomeArquivo}";
 
 
-            // 🧾 6. Criar o conteúdo no banco
+
             var conteudo = new Conteudo
             {
                 Nome = dto.Nome,
@@ -325,7 +323,7 @@ namespace StreamingAPI
 
             conteudo.Nome = dto.Nome;
             conteudo.Tipo = dto.Tipo;
-            conteudo.Url = dto.Url; // NOVO
+            conteudo.Url = dto.Url;
             conteudo.CriadorID = criador.Id;
 
             await _context.SaveChangesAsync();
@@ -545,7 +543,7 @@ namespace StreamingAPI
                           Nome = c.Nome,
                           Tipo = c.Tipo,
                           Url = c.Url,
-                          NomeCriador = criador.Nome // Preenchendo corretamente!
+                          NomeCriador = criador.Nome
                       })
                 .ToListAsync();
 
@@ -669,12 +667,12 @@ namespace StreamingAPI
         public async Task<IActionResult> ListarCurtidosDoUsuario()
         {
             var userId = int.Parse(User.FindFirst("id").Value);
-            // Buscar as curtidas do usuário, incluindo o conteúdo
+
             var curtidos = await _context.Curtidas
                 .Where(c => c.UsuarioId == userId)
                 .Include(c => c.Conteudo)
                 .ThenInclude(c => c.Criador)
-                .OrderByDescending(c => c.Id) // Mais recente primeiro (opcional)
+                .OrderByDescending(c => c.Id)
                 .ToListAsync();
 
             var lista = curtidos.Select(c => new {
@@ -819,7 +817,7 @@ namespace StreamingAPI
                 .Include(v => v.Conteudo)
                     .ThenInclude(c => c.Criador)
                 .GroupBy(v => v.ConteudoId)
-                .ToListAsync(); // força execução no banco até aqui
+                .ToListAsync();
 
             var conteudos = agrupado
                 .Select(g => new

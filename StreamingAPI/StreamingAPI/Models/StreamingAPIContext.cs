@@ -32,11 +32,11 @@ public partial class StreamingAPIContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            // Altere para ValueGeneratedOnAdd()
+           
             entity.Property(e => e.Id)
                   .ValueGeneratedOnAdd();  
 
-            // Configurações adicionais se necessário
+            
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.Nome).IsRequired().HasMaxLength(100);
             entity.Property(e => e.Email).IsRequired().HasMaxLength(100);

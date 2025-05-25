@@ -7,7 +7,6 @@ namespace StreamingAPI
     public interface Configurations
     {
 
-        //USUARIO CONFIGURATIONS
         public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
         {
             public void Configure(EntityTypeBuilder<Usuario> builder)

@@ -6,7 +6,7 @@ namespace StreamingAPI
 {
     public interface Interfaces
     {
-        //INTERFACE DE AUTHENTICATE
+
         public interface IAuthenticate
         {
             Task<bool> AuthenticateAsync(string email, string senha);
@@ -16,7 +16,6 @@ namespace StreamingAPI
             public Task<Usuario> GetUserByEmail(string email);
         }
 
-        //INTERFACE DE USUARIO REPOSITORY
         public interface IUsuarioRepository
         {
             Task<Usuario> Incluir(Usuario usuario);
@@ -29,8 +28,6 @@ namespace StreamingAPI
             Task<IEnumerable<Usuario>> SelecionarTodosAsync();
         }
 
-
-        //INTERFACE DE USUARIO SERVICE
         public interface IUsuarioService
         {
             Task<UsuarioDTO> Incluir(UsuarioDTO usuarioDTO);

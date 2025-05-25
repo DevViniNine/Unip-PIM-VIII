@@ -17,9 +17,6 @@ namespace StreamingAPI
             [MaxLength(100, ErrorMessage = "O Email dever ter, no máximo 100 caracteres.")]
             public string Email { get; set; }
 
-            // Remover o [Required] para permitir vir nulo na atualização!
-           // [MaxLength(100, ErrorMessage = "A Senha dever ter, no máximo 100 caracteres.")]
-            //[MinLength(8, ErrorMessage = "A Senha dever ter, no mínimo, 8 caracteres.")]
             [NotMapped]
             
             public string Password { get; set; }
@@ -96,7 +93,7 @@ namespace StreamingAPI
         public class ConteudoUploadDTO
         {
             public string Nome { get; set; }
-            public string Tipo { get; set; } // Ex: "imagem", "musica", "video"
+            public string Tipo { get; set; }
             public IFormFile Arquivo { get; set; }
         }
 
