@@ -4,7 +4,7 @@
 
 Este repositório é parte do **PIM (Projeto Integrado Multidisciplinar)** do curso de **Análise e Desenvolvimento de Sistemas** da UNIP. O projeto tem como objetivo o desenvolvimento de:
 
-- Uma **API em C# (.NET 8)** com banco de dados **SQL Server**;
+- Uma **API em C#** com banco de dados **SQL Server**;
 - Um **aplicativo Android** desenvolvido em **Java**, que consome essa API;
 - Um **protótipo de interface desktop** utilizando **.NET MAUI**, voltado para criadores de conteúdo.
 
