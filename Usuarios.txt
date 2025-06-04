@@ -1,0 +1,5 @@
+Lista de usuários cadastrados para teste
+
+Usuario (admin) : admin@admin.com
+Senha : admin123
+Usuario (comum) : Faça o cadastro no app ou endpoint cadastrar usuário.

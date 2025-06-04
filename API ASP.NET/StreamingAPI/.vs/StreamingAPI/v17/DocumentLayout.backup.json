@@ -1,0 +1,344 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\swaggerfileoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\swaggerfileoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\properties\\resources.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\entitiestodtomappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\entitiestodtomappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\configurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\configurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\migrations\\20250515011406_addtabelacurtidas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\migrations\\20250515011406_addtabelacurtidas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\migrations\\20250515011406_addtabelacurtidas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\migrations\\20250515011406_addtabelacurtidas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\models\\streamingapicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\models\\streamingapicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\models\\conteudouploaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\models\\conteudouploaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\models\\comentario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\models\\comentario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|c:\\users\\vinic\\desktop\\pim final 2025\\git-pim\\unip-pim-viii\\streamingapi\\streamingapi\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C06CF690-4EF2-4DC8-8DEC-4A66577494E1}|StreamingAPI\\StreamingAPI.csproj|solutionrelative:streamingapi\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 353,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "StreamingAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "StreamingAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-25T19:16:26.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "StreamingAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\appsettings.json",
+              "RelativeToolTip": "StreamingAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-25T14:06:11.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Interfaces.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Interfaces.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Interfaces.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Interfaces.cs",
+              "RelativeToolTip": "StreamingAPI\\Interfaces.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T17:26:16.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Configurations.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Configurations.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Configurations.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Configurations.cs",
+              "RelativeToolTip": "StreamingAPI\\Configurations.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T15:09:48.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DTOs.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\DTOs.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\DTOs.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\DTOs.cs",
+              "RelativeToolTip": "StreamingAPI\\DTOs.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAzwAcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T02:12:37.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EntitiesToDTOMappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\EntitiesToDTOMappingProfile.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\EntitiesToDTOMappingProfile.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\EntitiesToDTOMappingProfile.cs",
+              "RelativeToolTip": "StreamingAPI\\EntitiesToDTOMappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T15:08:59.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Program.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Program.cs",
+              "RelativeToolTip": "StreamingAPI\\Program.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAEwEgAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T17:42:04.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SwaggerFileOperationFilter.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\SwaggerFileOperationFilter.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\SwaggerFileOperationFilter.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\SwaggerFileOperationFilter.cs",
+              "RelativeToolTip": "StreamingAPI\\SwaggerFileOperationFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T12:02:09.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "StreamingAPI\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\appsettings.Development.json",
+              "RelativeToolTip": "StreamingAPI\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-27T13:06:01.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Repository.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Repository.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Repository.cs",
+              "RelativeToolTip": "StreamingAPI\\Repository.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAQwAMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T17:26:50.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Services.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Services.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Services.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Services.cs",
+              "RelativeToolTip": "StreamingAPI\\Services.cs",
+              "ViewState": "AgIAAFQBAAAAAAAAAAAowCUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T17:55:16.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ValuesController.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\ValuesController.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\ValuesController.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\ValuesController.cs",
+              "RelativeToolTip": "StreamingAPI\\ValuesController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAQwGcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T17:36:57.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "StreamingAPI\\Properties\\Resources.resx",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Properties\\Resources.resx",
+              "RelativeToolTip": "StreamingAPI\\Properties\\Resources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-05-25T19:16:25.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20250515011406_AddTabelaCurtidas.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.Designer.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.Designer.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.Designer.cs",
+              "RelativeToolTip": "StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T14:06:08.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20250515011406_AddTabelaCurtidas.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.cs",
+              "RelativeToolTip": "StreamingAPI\\Migrations\\20250515011406_AddTabelaCurtidas.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAgwJ8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T14:05:57.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Comentario.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\Comentario.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Models\\Comentario.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\Comentario.cs",
+              "RelativeToolTip": "StreamingAPI\\Models\\Comentario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T00:43:12.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ConteudoUploadDTO.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\ConteudoUploadDTO.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Models\\ConteudoUploadDTO.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\ConteudoUploadDTO.cs",
+              "RelativeToolTip": "StreamingAPI\\Models\\ConteudoUploadDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T11:53:40.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "StreamingAPIContext.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\StreamingAPIContext.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Models\\StreamingAPIContext.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\StreamingAPIContext.cs",
+              "RelativeToolTip": "StreamingAPI\\Models\\StreamingAPIContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T15:08:32.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\Usuario.cs",
+              "RelativeToolTip": "StreamingAPI\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T15:07:09.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LoginModel.cs",
+              "DocumentMoniker": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\LoginModel.cs",
+              "RelativeDocumentMoniker": "StreamingAPI\\Models\\LoginModel.cs",
+              "ToolTip": "C:\\Users\\vinic\\Desktop\\PIM FINAL 2025\\GIt-PIM\\Unip-PIM-VIII\\StreamingAPI\\StreamingAPI\\Models\\LoginModel.cs",
+              "RelativeToolTip": "StreamingAPI\\Models\\LoginModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T15:52:14.882Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

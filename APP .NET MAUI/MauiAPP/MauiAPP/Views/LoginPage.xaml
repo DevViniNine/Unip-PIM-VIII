@@ -1,0 +1,15 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAPP.Views.LoginPage"
+             Title="Login">
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Bem-vindo ao MauiAPP Para Criador De Conteudo" FontSize="24" HorizontalOptions="Center" />
+        <Entry x:Name="emailEntry" Placeholder="Email" Keyboard="Email" />
+        <Entry x:Name="passwordEntry" Placeholder="Senha" IsPassword="True" />
+
+        <Button Text="Entrar" Clicked="OnLoginClicked" />
+        <Button Text="Registrar" Clicked="OnRegisterClicked" />
+        <Button Text="Sair" Clicked="OnExitClicked" BackgroundColor="Red" TextColor="White" />
+        <Label x:Name="msgLabel" TextColor="Red" HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
